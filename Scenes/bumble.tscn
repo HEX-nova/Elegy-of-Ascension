@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://6g25ut6a8m81"]
+
+[ext_resource type="Texture2D" uid="uid://xb0uobxbopn8" path="res://Sprites/Bumble.png" id="1_4ediy"]
+[ext_resource type="Script" uid="uid://2c66telh4y4e" path="res://Scripts/bumble.gd" id="1_brush"]
+[ext_resource type="PackedScene" uid="uid://4o6ka6gb6nch" path="res://Scenes/EnemyStatsComponent.tscn" id="2_brush"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7pus"]
+atlas = ExtResource("1_4ediy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fy1v"]
+atlas = ExtResource("1_4ediy")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th35h"]
+atlas = ExtResource("1_4ediy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exmxc"]
+atlas = ExtResource("1_4ediy")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lrbg"]
+atlas = ExtResource("1_4ediy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhp1j"]
+atlas = ExtResource("1_4ediy")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0061"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7pus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fy1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th35h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exmxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lrbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhp1j")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 45.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ediy"]
+radius = 156.95222
+
+[node name="Bumble" type="StaticBody2D" unique_id=1976387197 groups=["Enemy"]]
+collision_layer = 8
+collision_mask = 143
+script = ExtResource("1_brush")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=348798300]
+sprite_frames = SubResource("SpriteFrames_f0061")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.3609001
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=657875918]
+polygon = PackedVector2Array(-4, -4, -5, -4, -5, -2, -6, -2, -6, 2, -5, 2, -5, 4, -4, 4, -4, 5, -2, 5, -2, 6, 2, 6, 2, 5, 4, 5, 4, 4, 5, 4, 5, 2, 6, 2, 6, -2, 5, -2, 5, -4, 4, -4, 4, -5, 2, -5, 2, -6, -2, -6, -2, -5, -4, -5)
+
+[node name="EnemyStatsComponent" parent="." unique_id=1023043979 instance=ExtResource("2_brush")]
+element_type = 1
+enemy_name = "Bumble"
+base_hp = 500.0
+base_atk = 75.0
+base_def = 50.0
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1797026255]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1947896322]
+shape = SubResource("CircleShape2D_4ediy")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://b2vboas5sumof"]
+
+[ext_resource type="Script" uid="uid://dbxkijjmc0iic" path="res://Scripts/player.gd" id="1_kyqiw"]
+[ext_resource type="SpriteFrames" uid="uid://cnre0dcnny54j" path="res://Animation Modules/Cryo Animations.tres" id="2_5ixxa"]
+[ext_resource type="Script" uid="uid://buog1mvryjtqv" path="res://Scripts/stats_component.gd" id="3_gntrk"]
+[ext_resource type="SpriteFrames" uid="uid://bvrh8ce6g3it8" path="res://Animation Modules/Dendro Animations.tres" id="3_nn08x"]
+[ext_resource type="SpriteFrames" uid="uid://bkxlv021288yy" path="res://Animation Modules/Pyro Animations.tres" id="4_52ee3"]
+[ext_resource type="SpriteFrames" uid="uid://djnse3ju7o6re" path="res://Animation Modules/Hydro Animation.tres" id="4_megsn"]
+[ext_resource type="SpriteFrames" uid="uid://cr83ec3ok8pml" path="res://Animation Modules/Geo Animations.tres" id="5_bhhdu"]
+[ext_resource type="SpriteFrames" uid="uid://dbmq3fs5val07" path="res://Animation Modules/Anemo Animations.tres" id="6_megsn"]
+[ext_resource type="SpriteFrames" uid="uid://c0gq65epfn5d8" path="res://Animation Modules/Nhlm Animations.tres" id="7_yoq75"]
+[ext_resource type="SpriteFrames" uid="uid://gbulv67m0dgj" path="res://Animation Modules/Electro Animations.tres" id="8_yoq75"]
+[ext_resource type="Texture2D" uid="uid://bhwf4a1ekxajr" path="res://Sprites/Player laser muzzle.png" id="11_glx4g"]
+[ext_resource type="Texture2D" uid="uid://t4u26xd4f148" path="res://Sprites/Player laser strip.png" id="12_miouo"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1420195861 groups=["Player"]]
+z_index = 9
+collision_mask = 6
+script = ExtResource("1_kyqiw")
+
+[node name="0" type="AnimatedSprite2D" parent="." unique_id=1253257393]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("2_5ixxa")
+animation = &"Wall"
+
+[node name="1" type="AnimatedSprite2D" parent="." unique_id=114614880]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("3_nn08x")
+animation = &"Wall"
+
+[node name="3" type="AnimatedSprite2D" parent="." unique_id=1870250138]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("4_52ee3")
+animation = &"Wall"
+
+[node name="2" type="AnimatedSprite2D" parent="." unique_id=885712568]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("4_megsn")
+animation = &"Wall"
+
+[node name="4" type="AnimatedSprite2D" parent="." unique_id=953965720]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("5_bhhdu")
+animation = &"Wall"
+
+[node name="5" type="AnimatedSprite2D" parent="." unique_id=1997480923]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("6_megsn")
+animation = &"Wall"
+
+[node name="6" type="AnimatedSprite2D" parent="." unique_id=884070793]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("8_yoq75")
+animation = &"Wall"
+
+[node name="7" type="AnimatedSprite2D" parent="." unique_id=732804229]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("7_yoq75")
+animation = &"Wall"
+frame_progress = 0.30810475
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2143361698]
+visible = false
+polygon = PackedVector2Array(-3, -1, -3, 0, -5, 0, -5, 1, -6, 1, -6, 2, -7, 2, -7, 4, -8, 4, -8, 7, -9, 7, -9, 14, -8, 14, -8, 15, -7, 15, -7, 16, 7, 16, 7, 15, 8, 15, 8, 14, 9, 14, 9, 7, 8, 7, 8, 4, 7, 4, 7, 2, 6, 2, 6, 1, 5, 1, 5, 0, 3, 0, 3, -1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1193895540]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 12.0
+
+[node name="Damage detector" type="Area2D" parent="." unique_id=217196983]
+collision_layer = 0
+collision_mask = 140
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Damage detector" unique_id=284049249]
+scale = Vector2(1.0800006, 1.0800005)
+polygon = PackedVector2Array(-3, -1, -3, 0, -5, 0, -5, 1, -6, 1, -6, 2, -7, 2, -7, 4, -8, 4, -8, 7, -9, 7, -9, 14, -8, 14, -8, 15, -7, 15, -7, 16, 7, 16, 7, 15, 8, 15, 8, 14, 9, 14, 9, 7, 8, 7, 8, 4, 7, 4, 7, 2, 6, 2, 6, 1, 5, 1, 5, 0, 3, 0, 3, -1)
+
+[node name="StatsComponent" type="Node2D" parent="." unique_id=1284462980]
+script = ExtResource("3_gntrk")
+max_health = 1000.0
+element_type = 2
+
+[node name="Interaction area" type="Area2D" parent="." unique_id=1279133069]
+visible = false
+collision_layer = 0
+collision_mask = 102
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Interaction area" unique_id=1430624621]
+position = Vector2(0, -20)
+scale = Vector2(3, 3.058)
+polygon = PackedVector2Array(-3, -1, -3, 0, -5, 0, -5, 1, -6, 1, -6, 2, -7, 2, -7, 4, -8, 4, -8, 7, -9, 7, -9, 14, -8, 14, -8, 15, -7, 15, -7, 16, 7, 16, 7, 15, 8, 15, 8, 14, 9, 14, 9, 7, 8, 7, 8, 4, 7, 4, 7, 2, 6, 2, 6, 1, 5, 1, 5, 0, 3, 0, 3, -1)
+
+[node name="Muzzle" type="Sprite2D" parent="." unique_id=1589913487]
+visible = false
+position = Vector2(11, 7)
+texture = ExtResource("11_glx4g")
+
+[node name="Beam" type="Line2D" parent="Muzzle" unique_id=1278124995]
+position = Vector2(6, 0)
+points = PackedVector2Array(0, 0, 400, 0)
+width = 8.0
+texture = ExtResource("12_miouo")
+texture_mode = 1
+
+[node name="LaserRay" type="RayCast2D" parent="Muzzle" unique_id=1748144093]
+position = Vector2(6, 0)
+target_position = Vector2(500, 0)
+collision_mask = 2
+
+[connection signal="body_entered" from="Damage detector" to="." method="_on_damage_detector_body_entered"]
+[connection signal="area_entered" from="Interaction area" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="Interaction area" to="." method="_on_interaction_area_area_exited"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://biewtaglbb7ut"]
+
+[ext_resource type="Script" uid="uid://beu5w8b8ir2s2" path="res://Scripts/thorn.gd" id="1_ckuau"]
+[ext_resource type="Texture2D" uid="uid://diqsa6cje676q" path="res://Sprites/Thornspitter thorn.png" id="2_hsqee"]
+
+[node name="Thorn" type="Area2D" unique_id=1453495322]
+collision_layer = 128
+collision_mask = 119
+script = ExtResource("1_ckuau")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1864372541]
+texture = ExtResource("2_hsqee")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1314617030]
+polygon = PackedVector2Array(-23, -7, -23, -6, -26, -6, -26, -5, -28, -5, -28, -4, -29, -4, -29, -3, -30, -3, -30, -2, -31, -2, -31, -1, -32, -1, -32, 1, -31, 1, -31, 2, -30, 2, -30, 3, -29, 3, -29, 4, -28, 4, -28, 5, -26, 5, -26, 6, -23, 6, -23, 7, -13, 7, -13, 6, 0, 6, 0, 5, 9, 5, 9, 4, 13, 4, 13, 3, 20, 3, 20, 2, 27, 2, 27, 1, 32, 1, 32, -1, 27, -1, 27, -2, 20, -2, 20, -3, 13, -3, 13, -4, 9, -4, 9, -5, 0, -5, 0, -6, -13, -6, -13, -7)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

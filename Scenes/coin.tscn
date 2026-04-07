@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cswrnacaxv7go"]
+
+[ext_resource type="Script" uid="uid://cnvs0c0lxkkpp" path="res://Scripts/Coin.gd" id="1_jgi06"]
+[ext_resource type="Texture2D" uid="uid://jt2wqcpkfvj3" path="res://Sprites/coin.png" id="2_g537i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2p6v"]
+atlas = ExtResource("2_g537i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffmqm"]
+atlas = ExtResource("2_g537i")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81h6x"]
+atlas = ExtResource("2_g537i")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbp07"]
+atlas = ExtResource("2_g537i")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l7mo"]
+atlas = ExtResource("2_g537i")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q30xt"]
+atlas = ExtResource("2_g537i")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7w2r2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2p6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffmqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81h6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbp07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l7mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q30xt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Area2D" type="Area2D" unique_id=842632809]
+collision_layer = 4
+script = ExtResource("1_jgi06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1798761694]
+sprite_frames = SubResource("SpriteFrames_7w2r2")
+autoplay = "default"
+frame_progress = 0.20242885
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=628050096]
+visible = false
+polygon = PackedVector2Array(-3, -5, -3, -4, -4, -4, -4, -3, -5, -3, -5, 3, -4, 3, -4, 4, -3, 4, -3, 5, 3, 5, 3, 4, 4, 4, 4, 3, 5, 3, 5, -3, 4, -3, 4, -4, 3, -4, 3, -5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

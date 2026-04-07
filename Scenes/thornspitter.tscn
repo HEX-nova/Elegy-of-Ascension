@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://shlyiefhal5i"]
+
+[ext_resource type="Script" uid="uid://dcoj3qmwj3iw2" path="res://Scripts/thornspitter.gd" id="1_nf2m6"]
+[ext_resource type="Texture2D" uid="uid://bfdjxr4nxqv1c" path="res://Sprites/Thornspitter.png" id="2_2i4la"]
+[ext_resource type="PackedScene" uid="uid://4o6ka6gb6nch" path="res://Scenes/EnemyStatsComponent.tscn" id="3_w7fl0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov1bo"]
+atlas = ExtResource("2_2i4la")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kpc0"]
+atlas = ExtResource("2_2i4la")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y67q"]
+atlas = ExtResource("2_2i4la")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b12fc"]
+atlas = ExtResource("2_2i4la")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7six"]
+atlas = ExtResource("2_2i4la")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysoo4"]
+atlas = ExtResource("2_2i4la")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elh4s"]
+atlas = ExtResource("2_2i4la")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaf8j"]
+atlas = ExtResource("2_2i4la")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ojl5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov1bo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kpc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y67q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b12fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7six")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysoo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elh4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaf8j")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iuwpl"]
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l1x7j"]
+radius = 157.0
+
+[node name="Thornspitter" type="StaticBody2D" unique_id=1508775770 groups=["Enemy"]]
+collision_layer = 8
+collision_mask = 147
+script = ExtResource("1_nf2m6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=101912290]
+sprite_frames = SubResource("SpriteFrames_7ojl5")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.35180628
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=692622085]
+shape = SubResource("CapsuleShape2D_iuwpl")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1719276340]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=304745568]
+shape = SubResource("CircleShape2D_l1x7j")
+
+[node name="EnemyStatsComponent" parent="." unique_id=1023043979 instance=ExtResource("3_w7fl0")]
+element_type = 1
+enemy_name = "Spitter"
+base_atk = 70.0
+base_def = 2.0
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://ct5ka4g07854y"]
+
+[ext_resource type="Script" uid="uid://ctgv5jwehi030" path="res://Scripts/sentinel.gd" id="1_8xmvy"]
+[ext_resource type="Texture2D" uid="uid://djnyc8uhht1lw" path="res://Sprites/Spinner.png" id="1_p7c5s"]
+[ext_resource type="Texture2D" uid="uid://un5b4mfscpe3" path="res://Sprites/Laser start.png" id="4_ippgu"]
+[ext_resource type="Texture2D" uid="uid://ciccl033a7lsf" path="res://Sprites/Laser strip.png" id="4_rioe8"]
+[ext_resource type="PackedScene" uid="uid://4o6ka6gb6nch" path="res://Scenes/EnemyStatsComponent.tscn" id="5_ippgu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xmvy"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yotfe"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rioe8"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ippgu"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf0yi"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3u0q"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwd87"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g16a7"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nixn"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr8gf"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmq2x"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeovq"]
+atlas = ExtResource("1_p7c5s")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u81xp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xmvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yotfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rioe8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ippgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rf0yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3u0q")
+}],
+"loop": true,
+"name": &"Angry",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwd87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g16a7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nixn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr8gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmq2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeovq")
+}],
+"loop": true,
+"name": &"Passive",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p7c5s"]
+radius = 5.0990195
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8xmvy"]
+radius = 125.0
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=872711004 groups=["Enemy"]]
+collision_layer = 8
+collision_mask = 17
+script = ExtResource("1_8xmvy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1006352658]
+sprite_frames = SubResource("SpriteFrames_u81xp")
+animation = &"Angry"
+autoplay = "Passive"
+frame = 4
+frame_progress = 0.43242204
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1775972862]
+visible = false
+shape = SubResource("CircleShape2D_p7c5s")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1041372899]
+top_level = true
+width = 2.0
+texture = ExtResource("4_rioe8")
+texture_mode = 1
+end_cap_mode = 2
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1188103592]
+target_position = Vector2(0, 3)
+collision_mask = 3
+
+[node name="DetectionRange" type="Area2D" parent="." unique_id=1369185387]
+visible = false
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange" unique_id=1859859151]
+shape = SubResource("CircleShape2D_8xmvy")
+
+[node name="LaserMuzzle" type="Sprite2D" parent="." unique_id=1664780551]
+texture = ExtResource("4_ippgu")
+centered = false
+offset = Vector2(0, -6)
+
+[node name="EnemyStatsComponent" parent="." unique_id=1023043979 instance=ExtResource("5_ippgu")]
+position = Vector2(-1, -1)
+element_type = 0
+
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]

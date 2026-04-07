@@ -1,5 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
+*.tmp
+export_preset.cfg
 .nomedia
 
 # Godot-specific ignores

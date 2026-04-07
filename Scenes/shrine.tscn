@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://4jwx264gmljw"]
+
+[ext_resource type="Texture2D" uid="uid://b2npos3kyn62i" path="res://Sprites/Shrinel.png" id="1_31tbt"]
+[ext_resource type="Script" uid="uid://demais46dadgg" path="res://Scripts/shrine.gd" id="1_gl0vf"]
+[ext_resource type="SpriteFrames" uid="uid://w53s7n61t883" path="res://Animation Modules/Shrine Slabs.tres" id="2_31tbt"]
+[ext_resource type="Shape2D" uid="uid://ifk0dmsamvrg" path="res://Stuff/new_convex_polygon_shape_2d.tres" id="4_df5ks"]
+
+[node name="Shrine" type="StaticBody2D" unique_id=1965085006 groups=["Interactable"]]
+collision_layer = 2
+collision_mask = 153
+script = ExtResource("1_gl0vf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1078372742]
+position = Vector2(-132.5, 63.5)
+polygon = PackedVector2Array(0.5, 0.5, 0.5, 6.5, -10.5, 6.5, -10.5, 12.5, -20.5, 12.5, -20.5, 18, 279.5, 18, 279.5, 12.5, 272, 12.5, 272, 7.5, 270, 7.5, 270, 6.5, 262, 6.5, 262, 0, 0.5, 0)
+
+[node name="Shrine image" type="Sprite2D" parent="." unique_id=968061548]
+position = Vector2(-3, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_31tbt")
+
+[node name="Slabs" type="AnimatedSprite2D" parent="." unique_id=845951913]
+position = Vector2(0, 36)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("2_31tbt")
+animation = &"6"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1302428120 groups=["Interactable"]]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1452089411]
+position = Vector2(-3, 78.5)
+shape = ExtResource("4_df5ks")
+debug_color = Color(0.6862745, 0.043137256, 0.70980394, 1)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

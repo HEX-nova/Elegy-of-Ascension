@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://drf2egds7exdy"]
+
+[ext_resource type="Script" uid="uid://d0n5q072w4hgf" path="res://Scripts/UIBars.gd" id="1_kgfbh"]
+[ext_resource type="Texture2D" uid="uid://m0glmanxtxi6" path="res://Sprites/UI - Profile.png" id="2_lkg3v"]
+[ext_resource type="Texture2D" uid="uid://b4rkpxopmgdxv" path="res://Sprites/UI - Profile-sheet.png" id="3_bag5e"]
+[ext_resource type="FontFile" uid="uid://8yk21wllfdcx" path="res://Fonts/PixelOperator8.ttf" id="4_lkg3v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrnpv"]
+atlas = ExtResource("3_bag5e")
+region = Rect2(23, 9, 39, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5r8b"]
+atlas = ExtResource("3_bag5e")
+region = Rect2(23, 13, 35, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvmpg"]
+atlas = ExtResource("3_bag5e")
+region = Rect2(23, 17, 35, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgfbh"]
+atlas = ExtResource("3_bag5e")
+region = Rect2(59, 13, 3, 7)
+
+[node name="Stats Tab" type="Control" unique_id=1073856702]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kgfbh")
+
+[node name="Background" type="TextureRect" parent="." unique_id=136003732]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_lkg3v")
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=253044470]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 9.0
+offset_right = 63.0
+offset_bottom = 49.0
+
+[node name="BarsContainer" type="Control" parent="." unique_id=772121595]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="TextureProgressBar" parent="BarsContainer" unique_id=153616970]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 9.0
+offset_right = 62.0
+offset_bottom = 12.0
+step = 0.1
+texture_progress = SubResource("AtlasTexture_xrnpv")
+
+[node name="ManaBar" type="TextureProgressBar" parent="BarsContainer" unique_id=507546062]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 13.0
+offset_right = 58.0
+offset_bottom = 16.0
+step = 0.1
+texture_progress = SubResource("AtlasTexture_i5r8b")
+
+[node name="StaminaBar" type="TextureProgressBar" parent="BarsContainer" unique_id=1195624993]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 17.0
+offset_right = 58.0
+offset_bottom = 20.0
+step = 0.1
+texture_progress = SubResource("AtlasTexture_cvmpg")
+
+[node name="ExpBar" type="TextureProgressBar" parent="BarsContainer" unique_id=973589100]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 13.0
+offset_right = 62.0
+offset_bottom = 20.0
+fill_mode = 3
+texture_progress = SubResource("AtlasTexture_kgfbh")
+
+[node name="Label" type="Label" parent="BarsContainer" unique_id=1946699495]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 6.0
+offset_right = 21.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("4_lkg3v")
+theme_override_font_sizes/font_size = 12
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

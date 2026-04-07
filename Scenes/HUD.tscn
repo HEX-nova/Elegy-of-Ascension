@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dc8aggqgcaqc"]
+
+[ext_resource type="Script" uid="uid://c6q4qv60etci5" path="res://Scripts/hud.gd" id="1_jo1ms"]
+[ext_resource type="Texture2D" uid="uid://jt2wqcpkfvj3" path="res://Sprites/coin.png" id="1_sd512"]
+[ext_resource type="FontFile" uid="uid://d1f4gqdkd26i3" path="res://Fonts/PixelOperator8-Bold.ttf" id="3_psnte"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo1ms"]
+atlas = ExtResource("1_sd512")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psnte"]
+atlas = ExtResource("1_sd512")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3jbq"]
+atlas = ExtResource("1_sd512")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3eba"]
+atlas = ExtResource("1_sd512")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8s2e"]
+atlas = ExtResource("1_sd512")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t385i"]
+atlas = ExtResource("1_sd512")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfm57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo1ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psnte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3jbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3eba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8s2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t385i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer" unique_id=1410368768]
+script = ExtResource("1_jo1ms")
+
+[node name="UI container" type="Control" parent="." unique_id=74467544]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Counter" type="HBoxContainer" parent="UI container" unique_id=896012544]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 60.0
+offset_right = 20.0
+offset_bottom = 99.999985
+grow_horizontal = 2
+alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI container/Counter" unique_id=1858423813]
+position = Vector2(-2, 20)
+sprite_frames = SubResource("SpriteFrames_nfm57")
+
+[node name="Label" type="Label" parent="UI container/Counter" unique_id=2086718005]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_psnte")
