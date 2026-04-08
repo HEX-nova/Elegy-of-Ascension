@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cr8xabaqjefba"]
+
+[ext_resource type="Texture2D" uid="uid://0ttkmxwbyssd" path="res://Sprites/Cinderbug.png" id="1_st25q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dux3"]
+atlas = ExtResource("1_st25q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cfc6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dux3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cfbg7"]
+radius = 17.029387
+
+[node name="Cinderbug" type="CharacterBody2D" unique_id=1910152083]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=205564152]
+sprite_frames = SubResource("SpriteFrames_cfc6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1732113996]
+shape = SubResource("CircleShape2D_cfbg7")

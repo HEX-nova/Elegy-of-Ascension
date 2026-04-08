@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 # --- SETTINGS ---
-@export var fire_rate: float = 2.0
+@export var fire_rate: float = 0.1
 @export var thorn_speed: float = 450.0
 @export var thorn_scene: PackedScene = preload("res://Scenes/thorn.tscn") # Make sure to save your Thorn scene here!
 
