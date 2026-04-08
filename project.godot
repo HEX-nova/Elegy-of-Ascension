@@ -22,6 +22,15 @@ Elements="*uid://cptbxq6ridihf"
 StatsComponent="*uid://buog1mvryjtqv"
 DamageNumberDisplay="*uid://c70hil5spdowu"
 
+[editor]
+
+version_control/plugin_name="Godot Git Plugin (4.1+)"
+version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GitGodot/plugin.cfg")
+
 [global_group]
 
 Player=""
