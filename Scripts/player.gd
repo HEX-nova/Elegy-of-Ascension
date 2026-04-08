@@ -193,8 +193,8 @@ func _run_laser_logic(delta: float) -> void:
 			var result = space_state.intersect_ray(params)
 			if result:
 				var target = result.collider
-				if target.is_in_group("Enemy") and target.has_method("take_damage"):
-					target.take_damage(stats.base_attack * 3.5, stats.element_type)
+				if target.is_in_group("Enemy") and target.find_child("EnemyStatsCOmponent"):
+					target.find_child("EnemyStatsCOmponent").take_damage(round(stats.base_attack * 3.5), stats.element_type)
 				hit_list.append(target.get_rid()) 
 			else:
 				break 
@@ -215,24 +215,30 @@ func _stop_laser():
 func fire_projectile():
 	var proj = projectile.instantiate()
 	
-	# --- THE FIX: PASS THE ELEMENT ---
-	# We set the projectile's element_type to match Tun's current stats
+	# 1. Set the element first (The setter handles the visual)
 	if "element_type" in proj:
 		proj.element_type = stats.element_type
 	
+	# 2. Add to tree so it exists in the world
+	get_tree().current_scene.add_child(proj)
+	
+	# 3. Determine direction and rotation
 	var is_aiming_up = Input.is_action_pressed("ui_up")
 	var dir_x: float = -1.0 if animated_sprite.flip_h else 1.0
-	
-	get_tree().current_scene.add_child(proj)
-	proj.global_position = global_position
 	
 	if is_aiming_up:
 		proj.direction = Vector2(0, -1)
 		proj.rotation_degrees = -90 
 	else:
+		# Set the whole vector at once to be safe
 		proj.direction = Vector2(dir_x, 0)
 		proj.rotation_degrees = 0
-		
+	
+	# 4. NOW set the position (Now that direction is defined)
+	# Using dir_x * 10 to offset it from the player's center
+	proj.global_position = global_position + Vector2(dir_x * 10, -5 if is_aiming_up else 0)
+	
+	# 5. Set scale
 	proj.scale = Vector2(0.3 * dir_x, 0.3)
 # --- SYSTEM FUNCTIONS ---
 

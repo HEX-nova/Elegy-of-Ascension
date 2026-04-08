@@ -48,7 +48,7 @@ func take_damage(incoming_atk: float, attacker_element: int):
 	var damage_after_def = (incoming_atk * incoming_atk) / (incoming_atk + defense)
 	var final_dmg = damage_after_def * multiplier
 	
-	current_hp -= final_dmg
+	current_hp -= round(final_dmg)
 	# Update the Bar
 	if health_bar:
 		health_bar.show()
@@ -63,7 +63,7 @@ func take_damage(incoming_atk: float, attacker_element: int):
 	if multiplier > 1.2: display_color = Color.RED
 	elif multiplier < 0.8 and multiplier > 0: display_color = Color.YELLOW
 	elif multiplier == 0: display_color = Color.GRAY
-	DamageNumberDisplay.display_number(str(final_dmg), global_position, display_color)
+	DamageNumberDisplay.display_number(str(-1 * round(final_dmg)), global_position, display_color)
 	
 	# NEW: Tell the parent we got hit!
 	on_hit.emit()

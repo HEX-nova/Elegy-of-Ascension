@@ -90,7 +90,7 @@ func take_damage(incoming_atk: float, attacker_element: int):
 	var final_damage = snapped(damage_after_defense * multiplier, 0.1)
 	
 	if can_take_damage:
-		current_health -= final_damage
+		current_health -= round(final_damage)
 		
 		# SAFE POSITION CHECK: Find the root node (Tun or Enemy)
 		var target_node = get_tree().get_first_node_in_group("Player")
@@ -99,7 +99,7 @@ func take_damage(incoming_atk: float, attacker_element: int):
 		var display_color = Color.WHITE
 		if multiplier > 1.2: display_color = Color.ORANGE_RED
 		elif multiplier < 0.8: display_color = Color.GRAY
-		DamageNumberDisplay.display_number(str(final_damage), pos, display_color)
+		DamageNumberDisplay.display_number(str(-1 * round(final_damage)), pos, display_color)
 		target_node.play_damaged_effect()
 		start_invulnerability()
 		if current_health <= 0:
