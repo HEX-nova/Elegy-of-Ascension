@@ -1,29 +1,47 @@
 [gd_scene format=3 uid="uid://cr8xabaqjefba"]
 
-[ext_resource type="Texture2D" uid="uid://0ttkmxwbyssd" path="res://Sprites/Cinderbug.png" id="1_st25q"]
+[ext_resource type="Texture2D" uid="uid://bjd750sgd6mqv" path="res://Sprites/Cinderbug-sheet.png" id="1_3dux3"]
+[ext_resource type="Script" uid="uid://c4nmpo8jpc42q" path="res://Scripts/cinderbug.gd" id="1_cfc6s"]
+[ext_resource type="PackedScene" uid="uid://4o6ka6gb6nch" path="res://Scenes/EnemyStatsComponent.tscn" id="2_cfc6s"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3dux3"]
-atlas = ExtResource("1_st25q")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfbg7"]
+atlas = ExtResource("1_3dux3")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja4nx"]
+atlas = ExtResource("1_3dux3")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cfc6s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3dux3")
+"texture": SubResource("AtlasTexture_cfbg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja4nx")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cfbg7"]
-radius = 17.029387
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfc6s"]
+size = Vector2(32, 24)
 
-[node name="Cinderbug" type="CharacterBody2D" unique_id=1910152083]
+[node name="Cinderbug" type="CharacterBody2D" unique_id=1910152083 groups=["Enemy"]]
+collision_layer = 8
+collision_mask = 119
+script = ExtResource("1_cfc6s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=205564152]
 sprite_frames = SubResource("SpriteFrames_cfc6s")
+frame_progress = 0.77208894
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1732113996]
-shape = SubResource("CircleShape2D_cfbg7")
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_cfc6s")
+
+[node name="EnemyStatsComponent" parent="." unique_id=1023043979 groups=["Enemy"] instance=ExtResource("2_cfc6s")]
+element_type = 3
+enemy_name = "Cinderbug"

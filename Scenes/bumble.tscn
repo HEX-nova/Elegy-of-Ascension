@@ -59,7 +59,7 @@ radius = 156.95222
 
 [node name="Bumble" type="StaticBody2D" unique_id=1976387197 groups=["Enemy"]]
 collision_layer = 8
-collision_mask = 143
+collision_mask = 127
 script = ExtResource("1_brush")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=348798300]
