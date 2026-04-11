@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://6g25ut6a8m81" path="res://Scenes/bumble.tscn" id="9_hxa32"]
 [ext_resource type="PackedScene" uid="uid://shlyiefhal5i" path="res://Scenes/thornspitter.tscn" id="10_dlght"]
 [ext_resource type="PackedScene" uid="uid://cr8xabaqjefba" path="res://Scenes/cinderbug.tscn" id="11_8i65c"]
+[ext_resource type="PackedScene" uid="uid://db6oj7tcev6x7" path="res://Scenes/port_basic.tscn" id="12_m35rq"]
 
 [node name="Node2D" type="Node2D" unique_id=117963092]
 
@@ -149,10 +150,13 @@ element_type = 6
 position = Vector2(1320, 280)
 
 [node name="Thornspitter" parent="." unique_id=1508775770 instance=ExtResource("10_dlght")]
-position = Vector2(832, -1040)
+position = Vector2(2088, -1048)
 
 [node name="Cinderbug" parent="." unique_id=1910152083 instance=ExtResource("11_8i65c")]
 position = Vector2(-704, -1168)
+
+[node name="Port-basic" parent="." unique_id=1969725065 instance=ExtResource("12_m35rq")]
+position = Vector2(778, -1036)
 
 [editable path="Practice Target"]
 [editable path="Practice Target2"]

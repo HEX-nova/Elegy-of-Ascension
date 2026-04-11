@@ -29,13 +29,14 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GitGodot/plugin.cfg")
+enabled=PackedStringArray()
 
 [global_group]
 
 Player=""
 Enemy=""
 Interactable=""
+Portal=""
 
 [input]
 
