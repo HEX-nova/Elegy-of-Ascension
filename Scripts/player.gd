@@ -193,8 +193,8 @@ func _run_laser_logic(delta: float) -> void:
 			var result = space_state.intersect_ray(params)
 			if result:
 				var target = result.collider
-				if target.is_in_group("Enemy") and target.find_child("EnemyStatsCOmponent"):
-					target.find_child("EnemyStatsCOmponent").take_damage(round(stats.base_attack * 3.5), stats.element_type)
+				if target.is_in_group("Enemy") and target.find_child("EnemyStatsComponent"):
+					target.find_child("EnemyStatsComponent").take_damage(round(stats.base_attack * 3.5), stats.element_type)
 				hit_list.append(target.get_rid()) 
 			else:
 				break 
