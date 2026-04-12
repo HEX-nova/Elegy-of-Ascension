@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dwoggt7hrpijr"]
+
+[node name="Energy particles" type="CPUParticles2D" unique_id=13275948]
+amount = 200
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(200, 0.5)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 75.0
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1541362093]
+position = Vector2(-190, -175)
+rect = Rect2(-10, -10, 400, 200)
+enable_mode = 1

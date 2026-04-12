@@ -88,9 +88,9 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_released("Fire"):
 		if laser_charge_time < 1.2 and not was_laser_active:
-			if stats.current_mana >= 20:
+			if stats.current_atheer >= 20:
 				fire_projectile()
-				stats.current_mana -= 20
+				stats.current_atheer -= 20
 				stats.stats_changed.emit()
 		
 		was_laser_active = false
@@ -156,16 +156,16 @@ func _run_laser_logic(delta: float) -> void:
 	
 	laser_damage_tick += delta
 	
-	if not is_firing and stats.current_mana < 20:
+	if not is_firing and stats.current_atheer < 20:
 		laser_muzzle.visible = false
 		return
 		
-	if stats.current_mana <= 0:
+	if stats.current_atheer <= 0:
 		_stop_laser()
 		return
 
 	is_firing = true
-	stats.current_mana -= 30 * delta
+	stats.current_atheer -= 30 * delta
 	stats.stats_changed.emit()
 	laser_muzzle.visible = true
 	

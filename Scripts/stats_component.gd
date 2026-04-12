@@ -4,11 +4,11 @@ class_name Stats
 # --- Vitals ---
 @export var max_health: float = 100.0
 @export var max_stamina: float = 100.0
-@export var max_mana: float = 100.0
+@export var max_atheer: float = 100.0
 
 @onready var current_health: float = max_health
 @onready var current_stamina: float = max_stamina
-@onready var current_mana: float = max_mana
+@onready var current_atheer: float = max_atheer
 
 # --- THE FIX: The Setter ---
 # Whenever you change this in the Inspector, sync_with_matrix() fires automatically!
@@ -58,7 +58,7 @@ func sync_with_matrix():
 	
 	# 3. Max Vitals
 	max_health = 100.0 + (Elements.get_stat(2, element_type) * level)
-	max_mana = 100.0 + (Elements.get_stat(3, element_type) * level)
+	max_atheer = 100.0 + (Elements.get_stat(3, element_type) * level)
 	max_stamina = 100.0 + (Elements.get_stat(4, element_type) * level)
 	
 	stats_changed.emit()
@@ -77,8 +77,8 @@ func _physics_process(delta: float) -> void:
 func _handle_regeneration(delta):
 	if current_health < max_health:
 		current_health = move_toward(current_health, max_health, Elements.get_stat(8, element_type) * 2 * delta)
-	if current_mana < max_mana:
-		current_mana = move_toward(current_mana, max_mana, Elements.get_stat(9, element_type) * 5 * delta)
+	if current_atheer < max_atheer:
+		current_atheer = move_toward(current_atheer, max_atheer, Elements.get_stat(9, element_type) * 5 * delta)
 	
 	# Simple Stamina Regen
 	current_stamina = move_toward(current_stamina, max_stamina, Elements.get_stat(10, element_type) * 5 * delta)

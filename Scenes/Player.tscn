@@ -22,50 +22,49 @@ script = ExtResource("1_kyqiw")
 visible = false
 texture_filter = 1
 sprite_frames = ExtResource("2_5ixxa")
-animation = &"Wall"
+animation = &"LevelUp"
 
 [node name="1" type="AnimatedSprite2D" parent="." unique_id=114614880]
 visible = false
 texture_filter = 1
 sprite_frames = ExtResource("3_nn08x")
-animation = &"Wall"
+animation = &"LevelUp"
 
 [node name="3" type="AnimatedSprite2D" parent="." unique_id=1870250138]
 visible = false
 texture_filter = 1
 sprite_frames = ExtResource("4_52ee3")
-animation = &"Wall"
+animation = &"LevelUp"
 
 [node name="2" type="AnimatedSprite2D" parent="." unique_id=885712568]
 visible = false
 texture_filter = 1
 sprite_frames = ExtResource("4_megsn")
-animation = &"Wall"
+animation = &"LevelUp"
 
 [node name="4" type="AnimatedSprite2D" parent="." unique_id=953965720]
 visible = false
 texture_filter = 1
 sprite_frames = ExtResource("5_bhhdu")
-animation = &"Wall"
+animation = &"LevelUp"
 
 [node name="5" type="AnimatedSprite2D" parent="." unique_id=1997480923]
 visible = false
 texture_filter = 1
 sprite_frames = ExtResource("6_megsn")
-animation = &"Wall"
+animation = &"LevelUp"
 
 [node name="6" type="AnimatedSprite2D" parent="." unique_id=884070793]
 visible = false
 texture_filter = 1
 sprite_frames = ExtResource("8_yoq75")
-animation = &"Wall"
+animation = &"LevelUp"
 
 [node name="7" type="AnimatedSprite2D" parent="." unique_id=732804229]
 visible = false
 texture_filter = 1
 sprite_frames = ExtResource("7_yoq75")
-animation = &"Wall"
-frame_progress = 0.30810475
+animation = &"LevelUp"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2143361698]
 visible = false
