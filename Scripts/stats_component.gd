@@ -28,7 +28,9 @@ class_name Stats
 
 # Calculated Values
 var base_attack: float = 10.0
-var defense: float = 10.0
+var attack: float
+var base_defense: float = 10.0
+var defense: float
 var attack_speed_mult: float = 1.0
 var move_speed_mult: float = 1.0
 var weight: float = 1.0
@@ -52,8 +54,8 @@ func sync_with_matrix():
 	weight = Elements.get_stat(7, element_type)
 	
 	# 2. Level Scaling
-	defense = 15.0 + (Elements.get_stat(1, element_type) * level)
-	base_attack = 20.0 + (Elements.get_stat(0, element_type) * level)
+	defense = base_defense + (Elements.get_stat(1, element_type) * level)
+	attack = base_attack + (Elements.get_stat(0, element_type) * level)
 	move_speed = 200.0 * move_speed_mult
 	
 	# 3. Max Vitals

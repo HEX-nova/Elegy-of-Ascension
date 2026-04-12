@@ -150,7 +150,7 @@ element_type = 6
 position = Vector2(1320, 280)
 
 [node name="Thornspitter" parent="." unique_id=1508775770 instance=ExtResource("10_dlght")]
-position = Vector2(2088, -1048)
+position = Vector2(534, -1040)
 
 [node name="Cinderbug" parent="." unique_id=1910152083 instance=ExtResource("11_8i65c")]
 position = Vector2(-704, -1168)
