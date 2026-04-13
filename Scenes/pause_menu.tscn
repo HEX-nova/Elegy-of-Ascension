@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://cehullm6de50b"]
+
+[ext_resource type="Texture2D" uid="uid://c8yavqeb57ooh" path="res://Sprites/UI Bg.png" id="1_1och7"]
+[ext_resource type="Script" uid="uid://cjqls7a6j8law" path="res://Scripts/pause_menu.gd" id="1_bpi0q"]
+[ext_resource type="SpriteFrames" uid="uid://bk5rmhblp1d6i" path="res://Animation Modules/UI icon animation.tres" id="2_bpi0q"]
+[ext_resource type="Texture2D" uid="uid://bbyb8168awdhx" path="res://Sprites/UI Icons.png" id="3_vmyb1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myy0f"]
+atlas = ExtResource("3_vmyb1")
+region = Rect2(172, 90, 36, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjs17"]
+atlas = ExtResource("3_vmyb1")
+region = Rect2(217, 90, 31, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8tnp"]
+atlas = ExtResource("3_vmyb1")
+region = Rect2(176, 169, 33, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stj27"]
+atlas = ExtResource("3_vmyb1")
+region = Rect2(172, 134, 36, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix48p"]
+atlas = ExtResource("3_vmyb1")
+region = Rect2(217, 135, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_524vl"]
+atlas = ExtResource("3_vmyb1")
+region = Rect2(93, 174, 26, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fi7f"]
+atlas = ExtResource("3_vmyb1")
+region = Rect2(128, 181, 40, 21)
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1488684670]
+process_mode = 3
+script = ExtResource("1_bpi0q")
+
+[node name="MenuRoot" type="Control" parent="." unique_id=1186455589]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 1151.0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="TextureRect" parent="MenuRoot" unique_id=1675709308]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 40.0
+grow_vertical = 2
+texture = ExtResource("1_1och7")
+stretch_mode = 4
+
+[node name="UpperStats" type="VBoxContainer" parent="MenuRoot/Background" unique_id=1066495293]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 24.0
+offset_right = 298.0
+offset_bottom = -357.0
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Name _ level" type="HBoxContainer" parent="MenuRoot/Background/UpperStats" unique_id=1867843434]
+layout_direction = 2
+layout_mode = 2
+alignment = 1
+
+[node name="Level" type="Label" parent="MenuRoot/Background/UpperStats/Name _ level" unique_id=1301466963]
+layout_mode = 2
+text = "1"
+
+[node name="Player Icon" type="AnimatedSprite2D" parent="MenuRoot/Background/UpperStats/Name _ level" unique_id=1251987404]
+position = Vector2(103, 4)
+sprite_frames = ExtResource("2_bpi0q")
+animation = &"7"
+
+[node name="Stats" type="GridContainer" parent="MenuRoot/Background/UpperStats" unique_id=2114679536]
+layout_mode = 2
+size_flags_stretch_ratio = 16.23
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 32
+columns = 2
+
+[node name="Attack" type="HBoxContainer" parent="MenuRoot/Background/UpperStats/Stats" unique_id=328138936]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="MenuRoot/Background/UpperStats/Stats/Attack" unique_id=1584312113]
+layout_mode = 2
+texture = SubResource("AtlasTexture_myy0f")
+
+[node name="Value" type="Label" parent="MenuRoot/Background/UpperStats/Stats/Attack" unique_id=837507737]
+layout_mode = 2
+
+[node name="Defense" type="HBoxContainer" parent="MenuRoot/Background/UpperStats/Stats" unique_id=1155491435]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="MenuRoot/Background/UpperStats/Stats/Defense" unique_id=2052877883]
+layout_mode = 2
+texture = SubResource("AtlasTexture_sjs17")
+
+[node name="Value" type="Label" parent="MenuRoot/Background/UpperStats/Stats/Defense" unique_id=1084199381]
+layout_mode = 2
+
+[node name="Speed" type="HBoxContainer" parent="MenuRoot/Background/UpperStats/Stats" unique_id=1344759067]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="MenuRoot/Background/UpperStats/Stats/Speed" unique_id=1939151927]
+layout_mode = 2
+texture = SubResource("AtlasTexture_u8tnp")
+
+[node name="Value" type="Label" parent="MenuRoot/Background/UpperStats/Stats/Speed" unique_id=930919451]
+layout_mode = 2
+
+[node name="Health" type="HBoxContainer" parent="MenuRoot/Background/UpperStats/Stats" unique_id=2021362219]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="MenuRoot/Background/UpperStats/Stats/Health" unique_id=919794760]
+layout_mode = 2
+texture = SubResource("AtlasTexture_stj27")
+
+[node name="Value" type="Label" parent="MenuRoot/Background/UpperStats/Stats/Health" unique_id=1270519289]
+layout_mode = 2
+
+[node name="Atheer" type="HBoxContainer" parent="MenuRoot/Background/UpperStats/Stats" unique_id=398359548]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="MenuRoot/Background/UpperStats/Stats/Atheer" unique_id=1760534927]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ix48p")
+
+[node name="Value" type="Label" parent="MenuRoot/Background/UpperStats/Stats/Atheer" unique_id=379535334]
+layout_mode = 2
+
+[node name="Stamina" type="HBoxContainer" parent="MenuRoot/Background/UpperStats/Stats" unique_id=38515009]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="MenuRoot/Background/UpperStats/Stats/Stamina" unique_id=441730260]
+layout_mode = 2
+texture = SubResource("AtlasTexture_524vl")
+
+[node name="Value" type="Label" parent="MenuRoot/Background/UpperStats/Stats/Stamina" unique_id=908029881]
+layout_mode = 2
+
+[node name="Weight" type="HBoxContainer" parent="MenuRoot/Background/UpperStats/Stats" unique_id=316962408]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="MenuRoot/Background/UpperStats/Stats/Weight" unique_id=1695667883]
+layout_mode = 2
+texture = SubResource("AtlasTexture_0fi7f")
+
+[node name="Value" type="Label" parent="MenuRoot/Background/UpperStats/Stats/Weight" unique_id=1424707364]
+layout_mode = 2

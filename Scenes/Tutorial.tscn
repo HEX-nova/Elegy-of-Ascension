@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b2vboas5sumof" path="res://Scenes/Player.tscn" id="2_uo1fs"]
 [ext_resource type="PackedScene" uid="uid://cswrnacaxv7go" path="res://Scenes/coin.tscn" id="3_uo1fs"]
 [ext_resource type="PackedScene" uid="uid://dc8aggqgcaqc" path="res://Scenes/HUD.tscn" id="4_7bloo"]
-[ext_resource type="PackedScene" uid="uid://drf2egds7exdy" path="res://Scenes/Stats.tscn" id="5_rlm2d"]
 [ext_resource type="PackedScene" uid="uid://8t7koapnounk" path="res://Scenes/practice_target.tscn" id="6_3j26a"]
 [ext_resource type="PackedScene" uid="uid://ct5ka4g07854y" path="res://Scenes/Sentinel.tscn" id="7_x7a1n"]
 [ext_resource type="PackedScene" uid="uid://4jwx264gmljw" path="res://Scenes/shrine.tscn" id="8_vv0ms"]
@@ -25,13 +24,6 @@ position = Vector2(-552, -1080)
 position = Vector2(-248, 7)
 
 [node name="HUD" parent="." unique_id=1410368768 instance=ExtResource("4_7bloo")]
-
-[node name="Stats Tab" parent="HUD" unique_id=1073856702 instance=ExtResource("5_rlm2d")]
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 90.0
-offset_bottom = 90.0
-scale = Vector2(3, 3)
 
 [node name="Practice Target" parent="." unique_id=697207792 instance=ExtResource("6_3j26a")]
 position = Vector2(312, -48)
