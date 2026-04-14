@@ -172,3 +172,14 @@ func cycle_element():
 	if player:
 		DamageNumberDisplay.display_number(element_name, player.global_position, Color.CYAN)
 	print("TUN SWITCHED TO: ", element_name)
+
+func take_fixed_damage(amount):
+	current_health -= amount
+	var target_node = get_tree().get_first_node_in_group("Player")
+	var pos = target_node.global_position + Vector2(0, -20)
+	DamageNumberDisplay.display_number(str(-1 * round(amount)), pos, Color.WHITE)
+	target_node.play_damaged_effect()
+	start_invulnerability()
+	if current_health <= 0:
+		die()
+	stats_changed.emit()

@@ -55,7 +55,7 @@ offset_right = 320.0
 offset_bottom = 40.0
 grow_vertical = 2
 texture = ExtResource("1_1och7")
-stretch_mode = 4
+expand_mode = 3
 
 [node name="UpperStats" type="VBoxContainer" parent="MenuRoot/Background" unique_id=1066495293]
 layout_mode = 1

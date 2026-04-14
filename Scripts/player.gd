@@ -315,4 +315,4 @@ func _on_damage_detector_body_entered(body: Node2D) -> void:
 	# 2. Check for TileMap Hazards (Spikes)
 	elif body is TileMapLayer :
 		if body.name == "Danger":
-			StatsComponent.take_damage(20, 1)
+			StatsComponent.take_fixed_damage(20)

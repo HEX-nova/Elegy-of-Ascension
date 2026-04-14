@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b5c5whgtdp2gt"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bfv4b3y3cjg1h"]
 
-[ext_resource type="Script" uid="uid://dowc23171dpy5" path="res://scripts/Nova-scripts/itemdata.gd" id="1_x0k3v"]
-[ext_resource type="Texture2D" uid="uid://blldygbpf8jbp" path="res://sprites/Nova-sprite/test orb.png" id="1_xnivm"]
+[ext_resource type="Script" uid="uid://baxi8pgf5cqgi" path="res://Scripts/itemdata.gd" id="1_x0k3v"]
+[ext_resource type="Texture2D" uid="uid://ctke68v61sop7" path="res://Sprites/yellow apple.png" id="1_xnivm"]
 
 [resource]
 script = ExtResource("1_x0k3v")
-name = "Orange"
+name = "Apple"
+value = 1
 icon = ExtResource("1_xnivm")
-metadata/_custom_type_script = "uid://dowc23171dpy5"
+metadata/_custom_type_script = "uid://baxi8pgf5cqgi"

@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://shlyiefhal5i" path="res://Scenes/thornspitter.tscn" id="10_dlght"]
 [ext_resource type="PackedScene" uid="uid://cr8xabaqjefba" path="res://Scenes/cinderbug.tscn" id="11_8i65c"]
 [ext_resource type="PackedScene" uid="uid://db6oj7tcev6x7" path="res://Scenes/port_basic.tscn" id="12_m35rq"]
+[ext_resource type="PackedScene" uid="uid://c61coqkmcqxq8" path="res://Scenes/item.tscn" id="12_sgy12"]
+[ext_resource type="Resource" uid="uid://bfv4b3y3cjg1h" path="res://Resources/Apple.tres" id="13_5gw1s"]
 
 [node name="Node2D" type="Node2D" unique_id=117963092]
 
@@ -22,7 +24,6 @@ tile_map_data = PackedByteArray(0, 0, 14, 0, 223, 255, 1, 0, 3, 0, 0, 0, 0, 0, 1
 
 [node name="CharacterBody2D" parent="." unique_id=1420195861 instance=ExtResource("2_uo1fs")]
 position = Vector2(-552, -1080)
-projectile = null
 
 [node name="Area2D" parent="." unique_id=842632809 instance=ExtResource("3_uo1fs")]
 position = Vector2(-248, 7)
@@ -156,6 +157,10 @@ position = Vector2(778, -1036)
 
 [node name="Bumble2" parent="." unique_id=2136657919 instance=ExtResource("9_hxa32")]
 position = Vector2(-694, -1170)
+
+[node name="Item" parent="." unique_id=1010940809 instance=ExtResource("12_sgy12")]
+position = Vector2(-40, -1088)
+item_data = ExtResource("13_5gw1s")
 
 [editable path="TileMap"]
 [editable path="Practice Target"]
