@@ -56,6 +56,6 @@ frame_progress = 0.77208894
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_cfc6s")
 
-[node name="EnemyStatsComponent" parent="." unique_id=1023043979 groups=["Enemy"] instance=ExtResource("2_cfc6s")]
+[node name="EnemyStatsComponent" parent="." unique_id=1023043979 instance=ExtResource("2_cfc6s")]
 element_type = 3
 enemy_name = "Cinderbug"

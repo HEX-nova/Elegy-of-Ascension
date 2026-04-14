@@ -31,7 +31,7 @@ var laser_damage_tick = 0.75
 # --- NODES ---
 @onready var animated_sprite: AnimatedSprite2D = $"0"
 @onready var stats = StatsComponent
-@export var projectile = preload("res://Scenes/Player Projectile.tscn")
+var projectile = PackedScene
 @onready var can_interact: Node2D = null
 @onready var sword: Area2D = $Sword
 
@@ -41,6 +41,7 @@ var laser_damage_tick = 0.75
 @onready var laser_ray = get_node_or_null("Muzzle/LaserRay")
 
 func _ready() -> void:
+	projectile = preload("res://Scenes/Player Projectile.tscn")
 	animated_sprite.visible = true
 	if sword:
 		sword.visible = false
@@ -306,3 +307,12 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 func _on_interaction_area_area_exited(area: Area2D) -> void:
 	if can_interact == area or (can_interact and can_interact == area.get_parent()):
 		can_interact = null
+
+func _on_damage_detector_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		var enemy = body.find_child("EnemyStatsComponent")
+		StatsComponent.take_damage(enemy.attack, enemy.element_type)
+	# 2. Check for TileMap Hazards (Spikes)
+	elif body is TileMapLayer :
+		if body.name == "Danger":
+			StatsComponent.take_damage(20, 1)

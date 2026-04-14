@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://drf2egds7exdy" path="res://Scenes/Stats.tscn" id="2_c3eba"]
 [ext_resource type="FontFile" uid="uid://d1f4gqdkd26i3" path="res://Fonts/PixelOperator8-Bold.ttf" id="3_psnte"]
 [ext_resource type="PackedScene" uid="uid://cehullm6de50b" path="res://Scenes/pause_menu.tscn" id="4_s3jbq"]
+[ext_resource type="PackedScene" uid="uid://p7adg7cj6rbj" path="res://Scenes/inventory_display.tscn" id="6_g8s2e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jo1ms"]
 atlas = ExtResource("1_sd512")
@@ -94,3 +95,5 @@ sprite_frames = SubResource("SpriteFrames_nfm57")
 [node name="Label" type="Label" parent="UI container/Counter" unique_id=2086718005]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_psnte")
+
+[node name="InventoryDisplay" parent="." unique_id=750271642 instance=ExtResource("6_g8s2e")]

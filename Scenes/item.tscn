@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c61coqkmcqxq8"]
+
+[ext_resource type="Script" uid="uid://butxs8ubtonbj" path="res://Scripts/item.gd" id="1_ys0gr"]
+
+[node name="Item" type="Area2D" unique_id=1010940809 groups=["Collectible"]]
+collision_layer = 32
+script = ExtResource("1_ys0gr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1998534954]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=957135873]
+polygon = PackedVector2Array(6, -11, 6, -10, 5, -10, 5, -8, 3, -8, 3, -9, -3, -9, -3, -8, -5, -8, -5, -7, -6, -7, -6, -6, -7, -6, -7, -5, -8, -5, -8, -3, -9, -3, -9, 3, -8, 3, -8, 5, -7, 5, -7, 6, -6, 6, -6, 7, -5, 7, -5, 8, -3, 8, -3, 9, 3, 9, 3, 8, 5, 8, 5, 7, 6, 7, 6, 6, 7, 6, 7, 5, 8, 5, 8, 3, 9, 3, 9, -3, 8, -3, 8, -6, 9, -6, 9, -7, 10, -7, 10, -10, 9, -10, 9, -11)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

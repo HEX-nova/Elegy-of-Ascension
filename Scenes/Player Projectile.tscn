@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://5jowifih3lv"]
 
 [ext_resource type="Script" uid="uid://cchqfvbdx20d1" path="res://Scripts/Player_Projectile.gd" id="1_7pst0"]
-[ext_resource type="Texture2D" uid="uid://1c5alw2m30vx" path="res://Sprites/Icicle.png" id="3_o3a65"]
+[ext_resource type="Texture2D" uid="uid://1c5alw2m30vx" path="res://Sprites/Projectiles.png" id="3_o3a65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x56x"]
 size = Vector2(64, 13)
@@ -116,6 +116,6 @@ shape = SubResource("RectangleShape2D_5x56x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1965000319]
 sprite_frames = SubResource("SpriteFrames_ed0hu")
-animation = &"1"
+animation = &"0"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b5c5whgtdp2gt"]
+
+[ext_resource type="Script" uid="uid://dowc23171dpy5" path="res://scripts/Nova-scripts/itemdata.gd" id="1_x0k3v"]
+[ext_resource type="Texture2D" uid="uid://blldygbpf8jbp" path="res://sprites/Nova-sprite/test orb.png" id="1_xnivm"]
+
+[resource]
+script = ExtResource("1_x0k3v")
+name = "Orange"
+icon = ExtResource("1_xnivm")
+metadata/_custom_type_script = "uid://dowc23171dpy5"
