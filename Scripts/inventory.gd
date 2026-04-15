@@ -8,8 +8,6 @@ var recieved = false
 func _ready():
 	InventoryUI = get_tree().get_first_node_in_group("InventoryUI")
 
-func _process(_delta): if Input.is_action_just_pressed("ui_accept"): print(Inventory.inventory)
-
 func add_to_inventory(data: ItemData):
 	if data == null:
 		print("!!! ERROR: Receiving Null Data !!!")

@@ -114,7 +114,7 @@ texture_mode = 1
 [node name="LaserRay" type="RayCast2D" parent="Muzzle" unique_id=1748144093]
 position = Vector2(6, 0)
 target_position = Vector2(500, 0)
-collision_mask = 2
+collision_mask = 174
 
 [node name="Sword" parent="." unique_id=1762180136 instance=ExtResource("13_miouo")]
 position = Vector2(3, 2)

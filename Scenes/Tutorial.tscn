@@ -23,7 +23,7 @@ layer_0/tile_data = PackedInt32Array(-3538982, 131073, 1, -3473446, 131073, 1, -
 tile_map_data = PackedByteArray(0, 0, 14, 0, 223, 255, 1, 0, 3, 0, 0, 0, 0, 0, 15, 0, 223, 255, 1, 0, 3, 0, 0, 0, 0, 0, 16, 0, 223, 255, 1, 0, 3, 0, 0, 0, 0, 0)
 
 [node name="CharacterBody2D" parent="." unique_id=1420195861 instance=ExtResource("2_uo1fs")]
-position = Vector2(-552, -1080)
+position = Vector2(-368, -1112)
 
 [node name="Area2D" parent="." unique_id=842632809 instance=ExtResource("3_uo1fs")]
 position = Vector2(-248, 7)
@@ -161,6 +161,15 @@ position = Vector2(-694, -1170)
 [node name="Item" parent="." unique_id=1010940809 instance=ExtResource("12_sgy12")]
 position = Vector2(-40, -1088)
 item_data = ExtResource("13_5gw1s")
+
+[node name="Cinderbug2" parent="." unique_id=1070558848 instance=ExtResource("11_8i65c")]
+position = Vector2(-744, -1040)
+
+[node name="Thornspitter2" parent="." unique_id=1802833309 instance=ExtResource("10_dlght")]
+position = Vector2(-760, -1040)
+
+[node name="Thornspitter3" parent="." unique_id=652828009 instance=ExtResource("10_dlght")]
+position = Vector2(-736, -1040)
 
 [editable path="TileMap"]
 [editable path="Practice Target"]

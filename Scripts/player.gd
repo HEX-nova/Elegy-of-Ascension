@@ -176,8 +176,10 @@ func _physics_process(delta: float) -> void:
 			sword.position = Vector2(8 * dir, -2)
 		elif current_fight_mode == FightMode.RANGED and not sword.monitoring:
 			sword.visible = false
-	
-	_update_animations(direction)
+	# Inside _physics_process
+	var h_dir = Input.get_axis("ui_left", "ui_right")
+	var v_dir = Input.get_axis("ui_up", "ui_down")
+	_update_animations(h_dir, v_dir)
 	move_and_slide()
 
 # --- COMBAT FUNCTIONS ---
@@ -206,10 +208,13 @@ func perform_melee_attack():
 		sword.monitoring = false
 		sword.monitorable = false
 	)
-	
+
 func _run_laser_logic(delta: float) -> void:
-	if laser_ray == null or laser_beam == null: return
+	if laser_ray == null or laser_beam == null:
+		return
+
 	laser_damage_tick += delta
+
 	if stats.current_atheer <= 0:
 		_stop_laser()
 		return
@@ -217,22 +222,61 @@ func _run_laser_logic(delta: float) -> void:
 	is_firing = true
 	stats.current_atheer -= 30 * delta
 	stats.stats_changed.emit()
-	laser_muzzle.visible = true
+
+	# 1. Get the direction from input (Defaults to Right/Left if no Up is held)
+	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
-	var dir = -1.0 if animated_sprite.flip_h else 1.0
-	laser_muzzle.scale.x = abs(laser_muzzle.scale.x) * dir
-	laser_muzzle.position.x = abs(laser_muzzle.position.x) * dir
+	# Fallback to current facing if no horizontal/vertical input is held
+	if input_dir == Vector2.ZERO:
+		input_dir = Vector2.LEFT if animated_sprite.flip_h else Vector2.RIGHT
+	
+	# Normalize to ensure diagonal shots aren't longer/faster than straight shots
+	var laser_direction = input_dir.normalized()
+
+	# 2. Visuals: Muzzle Rotation & Color
+	laser_muzzle.visible = true
+	# Point the muzzle toward the shot direction
+	laser_muzzle.rotation = laser_direction.angle()
 	
 	var color = get_element_color(stats.element_type)
 	laser_muzzle.modulate = color
 	laser_beam.modulate = color
-	
-	if laser_damage_tick >= 0.75:
-		# (Raycast damage logic remains same as your snippet)
-		laser_damage_tick = 0.0 
 
-	laser_ray.force_raycast_update()
-	laser_beam.points[1] = laser_beam.to_local(laser_ray.get_collision_point()) if laser_ray.is_colliding() else Vector2(1000, 0)
+	# 3. 🔥 DAMAGE LOGIC (The Piercing Loop)
+	if laser_damage_tick >= 0.75:
+		laser_damage_tick = 0.0
+		
+		var space_state = get_world_2d().direct_space_state
+		var start_pos = laser_ray.global_position
+		var end_pos = start_pos + (laser_direction * 1000)
+
+		var query_params = PhysicsRayQueryParameters2D.create(start_pos, end_pos)
+		query_params.collision_mask = laser_ray.collision_mask
+		query_params.exclude = [self.get_rid()]
+
+		var hits_count = 0
+		while hits_count < 10:
+			var result = space_state.intersect_ray(query_params)
+			if result.is_empty(): break
+				
+			var collider = result.collider
+			var stats_node = collider.get_node_or_null("EnemyStatsComponent")
+			if stats_node == null:
+				stats_node = collider.get_parent().get_node_or_null("EnemyStatsComponent")
+			
+			if stats_node and stats_node.has_method("take_damage"):
+				stats_node.take_damage(stats.attack * 3.5, stats.element_type)
+			
+			if not collider.is_in_group("Enemy") and not stats_node:
+				break
+
+			query_params.from = result.position + (laser_direction * 2.0)
+			hits_count += 1
+
+	# 4. Visual Beam Update
+	# We rotate the beam to match the direction and use the local vector
+	laser_beam.rotation = 0 # Reset rotation to avoid doubling up
+	laser_beam.points[1] = laser_beam.to_local(laser_ray.global_position + (laser_direction * 1000))
 
 func _stop_laser():
 	is_firing = false
@@ -275,16 +319,33 @@ func play_damaged_effect():
 		tween.tween_property(animated_sprite, "modulate", Color(1, 0, 0, 0.5), 0.1)
 		tween.tween_property(animated_sprite, "modulate", Color(1, 1, 1, 1), 0.1) 
 
-func _update_animations(direction):
+func _update_animations(direction: float, v_dir: float):
+	# 1. Flip Logic (only change flip if actually moving horizontally)
 	if not is_wall_sliding and direction != 0:
 		animated_sprite.flip_h = (direction < 0)
 	
+	# 2. Wall Sliding State
 	if is_wall_sliding:
 		animated_sprite.play("Wall")
 		animated_sprite.flip_h = (get_wall_normal().x < 0)
-	elif is_charging: animated_sprite.play("Charge")
-	elif is_on_floor():
-		animated_sprite.play("Sprint" if is_sprinting else ("Walk" if direction != 0 else "Idle"))
+		return # Exit early so we don't override with floor/air anims
+
+	# 3. Action States
+	if is_charging:
+		animated_sprite.play("Charge")
+		return
+
+	# 4. Floor States (Idle, Walk, Sprint with "Up" variants)
+	if is_on_floor():
+		var anim_suffix = "-UP" if v_dir < 0 else "" # Assuming -1 is Up
+		
+		if direction != 0:
+			var move_type = "Sprint" if is_sprinting else "Walk"
+			animated_sprite.play(move_type + anim_suffix)
+		else:
+			animated_sprite.play("Idle" + anim_suffix)
+	
+	# 5. Air States
 	else:
 		animated_sprite.play("Fall" if velocity.y > 0 else "Air")
 
