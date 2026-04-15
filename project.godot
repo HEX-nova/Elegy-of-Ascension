@@ -39,6 +39,7 @@ Enemy=""
 Interactable=""
 Portal=""
 Collectible=""
+InventoryUI=""
 
 [input]
 
