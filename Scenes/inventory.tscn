@@ -40,7 +40,7 @@ grow_horizontal = 2
 [node name="unit" type="VBoxContainer" parent="BG/scroll" unique_id=688451101]
 layout_mode = 2
 
-[node name="HBoxContainer" type="GridContainer" parent="BG" unique_id=985166564]
+[node name="Buttons" type="GridContainer" parent="BG" unique_id=985166564]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -52,17 +52,54 @@ offset_bottom = -17.0
 grow_vertical = 2
 columns = 3
 
-[node name="use" type="Button" parent="BG/HBoxContainer" unique_id=1127442731]
+[node name="use" type="Button" parent="BG/Buttons" unique_id=1127442731]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Use"
 
-[node name="discard" type="Button" parent="BG/HBoxContainer" unique_id=178833647]
+[node name="discard" type="Button" parent="BG/Buttons" unique_id=178833647]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Discard"
 
-[node name="cancel" type="Button" parent="BG/HBoxContainer" unique_id=600126005]
+[node name="cancel" type="Button" parent="BG/Buttons" unique_id=600126005]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel"
+
+[node name="Lowerhalf" type="ScrollContainer" parent="BG" unique_id=800103622]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = 21.0
+offset_right = 287.0
+offset_bottom = 286.0
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/Lowerhalf" unique_id=318879456]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/Lowerhalf/VBoxContainer" unique_id=270666225]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="BG/Lowerhalf/VBoxContainer/HBoxContainer" unique_id=1660948330]
+layout_mode = 2
+size_flags_stretch_ratio = 0.75
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Data" type="Label" parent="BG/Lowerhalf/VBoxContainer/HBoxContainer" unique_id=1075784025]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="BG/Lowerhalf/VBoxContainer" unique_id=564882836]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+autowrap_mode = 2

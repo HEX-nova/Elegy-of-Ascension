@@ -2,16 +2,24 @@ extends CanvasLayer
 
 @onready var stats_comp = StatsComponent
 @onready var list_container = $"Inventory/BG/scroll/unit"
+@onready var detail_icon = $"Inventory/BG/Lowerhalf/VBoxContainer/HBoxContainer/Icon"
+@onready var detail_data = $"Inventory/BG/Lowerhalf/VBoxContainer/HBoxContainer/Data"
+@onready var detail_desc = $"Inventory/BG/Lowerhalf/VBoxContainer/Description"
+@onready var button_use = $"Inventory/BG/Buttons/use"
+@onready var button_discard = $"Inventory/BG/Buttons/discard"
+@onready var button_cancel = $"Inventory/BG/Buttons/cancel"
+
+# Track the currently selected item
+var selected_item: ItemData = null
 
 func _ready() -> void:
 	visible = false
 	update_stat_labels()
+	_toggle_action_buttons(false)
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Stats") or Input.is_action_just_pressed("Inventory"):
 		toggle_menu()
-		for item in Inventory.inventory:
-			print(item.name)
 
 func toggle_menu():
 	visible = !visible
@@ -33,26 +41,90 @@ func update_stat_labels():
 	grid.get_node("Stamina/Value").text = str(int(round(stats_comp.current_stamina))) + "/" + str(int(round(stats_comp.max_stamina)))
 	grid.get_node("Weight/Value").text  = str(stats_comp.weight)
 
-func _refresh_ui():
-	# 1. THE NULL GUARD
-	if list_container == null:
-		# Try to find it again just in case it was a timing issue
-		list_container = $"Inventory/BG/scroll/unit"
-		if list_container == null:
-			return # If still null, stop here to prevent the crash
+# --- NEW SELECTION LOGIC ---
+
+func _select_item(item: ItemData):
+	selected_item = item
 	
-	# 2. Clear old icons
+	# Update Detail View
+	detail_icon.texture = item.icon
+	detail_desc.text = item.description
+	
+	var type_string = ItemData.Type.keys()[item.type]
+	detail_data.text = "Name: %s\nType: %s\nValue: %d\nQty: %d" % [
+		item.name, type_string, item.value, item.quantity
+	]
+	
+	_toggle_action_buttons(true)
+	
+	# Dynamic button text
+	if item.type == ItemData.Type.WEAPON:
+		button_use.text = "Equip"
+	else:
+		button_use.text = "Use"
+
+func _deselect():
+	selected_item = null
+	detail_icon.texture = null
+	detail_data.text = "Select an item..."
+	detail_desc.text = ""
+	_toggle_action_buttons(false)
+
+func _toggle_action_buttons(is_active: bool):
+	if button_use: button_use.disabled = !is_active
+	if button_discard: button_discard.disabled = !is_active
+
+# --- UPDATED REFRESH LOGIC ---
+
+func _refresh_ui():
+	if list_container == null:
+		list_container = $"Inventory/BG/scroll/unit"
+		if list_container == null: return
+	
 	for child in list_container.get_children():
 		child.queue_free()
 	
-	# 3. Redraw (only if you have items)
 	for item in Inventory.inventory:
-		var label = Label.new()
-		label.text = item.name + " (×" + str(item.quantity) + ")"
-		label.add_theme_color_override("font_color", Color.WHITE)
-		var icon = TextureRect.new()
-		icon.texture = item.icon
-		var slot = HBoxContainer.new()
-		slot.add_child(icon)
-		slot.add_child(label)
+		# Create a clean Icon button
+		var slot = Button.new()
+		slot.icon = item.icon
+		slot.expand_icon = true
+		
+		# Set a square size so it looks like a grid unit
+		slot.custom_minimum_size = Vector2(64, 64) 
+		
+		# Optional: Tooltip so you see the name when hovering
+		slot.tooltip_text = item.name
+		
+		# Connect the same selection logic
+		slot.pressed.connect(_select_item.bind(item))
+		
 		list_container.add_child(slot)
+	
+	_deselect()
+
+# --- BUTTON CONNECTIONS ---
+# (Remember to link these in the Godot 'Node' tab to your buttons!)
+
+func _on_use_pressed():
+	if selected_item:
+		# The item decides what to do!
+		var was_consumed = selected_item.use()
+		
+		if was_consumed:
+			selected_item.quantity -= 1
+			if selected_item.quantity <= 0:
+				Inventory.inventory.erase(selected_item)
+				_deselect()
+		
+		update_stat_labels()
+		_refresh_ui()
+
+func _on_discard_pressed():
+	if selected_item:
+		print("Discarding: ", selected_item.name)
+		# Future logic: Inventory.remove_item(selected_item)
+		_refresh_ui()
+
+func _on_cancel_pressed():
+	_deselect()

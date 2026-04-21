@@ -175,3 +175,9 @@ layout_mode = 2
 
 [node name="Inventory" parent="." unique_id=80706350 instance=ExtResource("5_vmyb1")]
 process_mode = 0
+
+[connection signal="pressed" from="Inventory/BG/Buttons/use" to="." method="_on_use_pressed"]
+[connection signal="pressed" from="Inventory/BG/Buttons/discard" to="." method="_on_discard_pressed"]
+[connection signal="pressed" from="Inventory/BG/Buttons/cancel" to="." method="_on_cancel_pressed"]
+
+[editable path="Inventory"]

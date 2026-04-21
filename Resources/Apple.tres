@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bfv4b3y3cjg1h"]
+[gd_resource type="Resource" script_class="ConsumableItem" format=3 uid="uid://bfv4b3y3cjg1h"]
 
-[ext_resource type="Script" uid="uid://baxi8pgf5cqgi" path="res://Scripts/itemdata.gd" id="1_x0k3v"]
 [ext_resource type="Texture2D" uid="uid://ctke68v61sop7" path="res://Sprites/yellow apple.png" id="1_xnivm"]
+[ext_resource type="Script" uid="uid://vumep2cojxja" path="res://Scripts/ConsumableItem.gd" id="2_xnivm"]
 
 [resource]
-script = ExtResource("1_x0k3v")
+script = ExtResource("2_xnivm")
 name = "Apple"
 value = 1
 icon = ExtResource("1_xnivm")
+description = "A very delicious fruit, sometimes it changes colors depending on the sweetness. heals the user for 25 upon consumption."
 metadata/_custom_type_script = "uid://baxi8pgf5cqgi"
