@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const ITEM_SCENE = preload("res://Scenes/item.tscn")
+
 @onready var stats_comp = StatsComponent
 @onready var list_container = $"Inventory/BG/scroll/unit"
 @onready var detail_icon = $"Inventory/BG/Lowerhalf/VBoxContainer/HBoxContainer/Icon"
@@ -122,9 +124,34 @@ func _on_use_pressed():
 
 func _on_discard_pressed():
 	if selected_item:
-		print("Discarding: ", selected_item.name)
-		# Future logic: Inventory.remove_item(selected_item)
+		# 1. Spawn the item back into the world
+		_spawn_item_in_world(selected_item)
+		
+		# 2. Remove from inventory array
+		Inventory.inventory.erase(selected_item)
+		
+		# 3. Update UI
+		print("Dropped: ", selected_item.name)
+		_deselect()
 		_refresh_ui()
 
 func _on_cancel_pressed():
 	_deselect()
+
+func _spawn_item_in_world(data: ItemData):
+	# Create the visual/physical node
+	var new_item = ITEM_SCENE.instantiate()
+	
+	# Inject the data so it knows it's the 'Wooden Key' and not an apple
+	new_item.item_data = data 
+	
+	# Get the player's current position
+	# (Assuming you have a global reference to the player or they are in a 'Player' group)
+	var player = get_tree().get_first_node_in_group("Player")
+	if player:
+		# Drop it slightly offset so the player doesn't instantly pick it up again
+		new_item.global_position = player.global_position + Vector2(20, 0)
+		
+		# Add it to the current level/world node
+		# Don't add as child of Player! Add to the level.
+		get_tree().current_scene.add_child(new_item)

@@ -37,8 +37,9 @@ offset_right = 126.69769
 offset_bottom = 274.0
 grow_horizontal = 2
 
-[node name="unit" type="VBoxContainer" parent="BG/scroll" unique_id=688451101]
+[node name="unit" type="GridContainer" parent="BG/scroll" unique_id=1047092311]
 layout_mode = 2
+columns = 4
 
 [node name="Buttons" type="GridContainer" parent="BG" unique_id=985166564]
 layout_mode = 1

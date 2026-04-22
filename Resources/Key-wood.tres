@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bm6bhv4q0qle1"]
+
+[ext_resource type="Texture2D" uid="uid://dpneftwkjl5uj" path="res://Sprites/Key-wood.png" id="1_4vlhy"]
+[ext_resource type="Script" uid="uid://baxi8pgf5cqgi" path="res://Scripts/itemdata.gd" id="1_r7guy"]
+
+[resource]
+script = ExtResource("1_r7guy")
+name = "Wooden key"
+weight = 0.5
+value = 15
+icon = ExtResource("1_4vlhy")
+type = 1
+description = "An aged wooden key, carved from the bark of the veridian tree growing on the side of the mountain. used to open wooden doors and simple locks."
+metadata/_custom_type_script = "uid://baxi8pgf5cqgi"
