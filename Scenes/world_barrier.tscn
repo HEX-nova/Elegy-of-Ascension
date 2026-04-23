@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://eo70kumbk4xt"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k68jr"]
+
+[node name="World Barrier" type="Node2D" unique_id=1619627720]
+
+[node name="East" type="Area2D" parent="." unique_id=1500944864]
+collision_layer = 2
+collision_mask = 153
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="East" unique_id=1678463506]
+position = Vector2(5000, 0)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_k68jr")
+
+[node name="West" type="Area2D" parent="." unique_id=1438052455]
+collision_layer = 2
+collision_mask = 153
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="West" unique_id=1254271155]
+position = Vector2(-5000, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_k68jr")

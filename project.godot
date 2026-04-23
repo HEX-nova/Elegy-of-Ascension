@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="S01"
-run/main_scene="uid://s711uyrskuxr"
+run/main_scene="uid://dfhtak7q7v308"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://Sprites/icon.svg"
 

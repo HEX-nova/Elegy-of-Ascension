@@ -11,7 +11,7 @@ const ITEM_SCENE = preload("res://Scenes/item.tscn")
 @onready var button_discard = $"Inventory/BG/Buttons/discard"
 @onready var button_cancel = $"Inventory/BG/Buttons/cancel"
 
-# Track the currently selected item
+
 var selected_item: ItemData = null
 
 func _ready() -> void:
@@ -42,8 +42,6 @@ func update_stat_labels():
 	grid.get_node("Atheer/Value").text  = str(int(round(stats_comp.current_atheer))) + "/" + str(int(round(stats_comp.max_atheer)))
 	grid.get_node("Stamina/Value").text = str(int(round(stats_comp.current_stamina))) + "/" + str(int(round(stats_comp.max_stamina)))
 	grid.get_node("Weight/Value").text  = str(stats_comp.weight)
-
-# --- NEW SELECTION LOGIC ---
 
 func _select_item(item: ItemData):
 	selected_item = item
@@ -76,8 +74,6 @@ func _toggle_action_buttons(is_active: bool):
 	if button_use: button_use.disabled = !is_active
 	if button_discard: button_discard.disabled = !is_active
 
-# --- UPDATED REFRESH LOGIC ---
-
 func _refresh_ui():
 	if list_container == null:
 		list_container = $"Inventory/BG/scroll/unit"
@@ -104,9 +100,6 @@ func _refresh_ui():
 		list_container.add_child(slot)
 	
 	_deselect()
-
-# --- BUTTON CONNECTIONS ---
-# (Remember to link these in the Godot 'Node' tab to your buttons!)
 
 func _on_use_pressed():
 	if selected_item:
