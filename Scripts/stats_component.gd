@@ -73,17 +73,12 @@ func _physics_process(delta: float) -> void:
 	_handle_regeneration(delta)
 	if Input.is_action_just_pressed("ui_x_key"): # Make sure "ui_x_key" is mapped to X in Input Map
 		cycle_element()
-	if GameManager.coins >= 20 :
-		die()
 
 func _handle_regeneration(delta):
 	if current_health < max_health:
 		current_health = move_toward(current_health, max_health, Elements.get_stat(8, element_type) * 2 * delta)
 	if current_atheer < max_atheer:
 		current_atheer = move_toward(current_atheer, max_atheer, Elements.get_stat(9, element_type) * 5 * delta)
-	
-	# Simple Stamina Regen
-	current_stamina = move_toward(current_stamina, max_stamina, Elements.get_stat(10, element_type) * 5 * delta)
 	stats_changed.emit()
 
 func take_damage(incoming_atk: float, attacker_element: int):

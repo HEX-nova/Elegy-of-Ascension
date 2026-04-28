@@ -8,20 +8,20 @@
 [ext_resource type="PackedScene" uid="uid://dwoggt7hrpijr" path="res://Effects/energy_particles.tscn" id="5_fslag"]
 [ext_resource type="Texture2D" uid="uid://cld2vk0ks3nd7" path="res://Sprites/particle effect sheet.png" id="7_dkafn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dkafn"]
-radius = 234.0534
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkafn"]
+size = Vector2(444, 153)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrpq6"]
 atlas = ExtResource("7_dkafn")
 region = Rect2(0, 0, 8, 1)
 
 [node name="Shrine" type="StaticBody2D" unique_id=1965085006 groups=["Interactable"]]
+process_mode = 3
 collision_layer = 2
 collision_mask = 153
 script = ExtResource("1_gl0vf")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1078372742]
-visible = false
 position = Vector2(-132.5, 63.5)
 polygon = PackedVector2Array(0.5, 0.5, 0.5, 6.5, -10.5, 6.5, -10.5, 12.5, -20.5, 12.5, -20.5, 18, 279.5, 18, 279.5, 12.5, 272, 12.5, 272, 7.5, 270, 7.5, 270, 6.5, 262, 6.5, 262, 0, 0.5, 0)
 
@@ -42,28 +42,30 @@ collision_layer = 32
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Interaction area" unique_id=1452089411]
 position = Vector2(-3, 78.5)
 shape = ExtResource("4_df5ks")
-debug_color = Color(0.6862745, 0.043137256, 0.70980394, 1)
+debug_color = Color(0.6862745, 0.043137256, 0.70980394, 0.37254903)
 
 [node name="detection area" type="Area2D" parent="." unique_id=203336055 node_paths=PackedStringArray("target_particles", "target_particles2")]
+process_mode = 3
 position = Vector2(0, 79)
 script = ExtResource("5_5bw4e")
 target_particles = NodePath("Energy particles")
 target_particles2 = NodePath("Energy particles2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection area" unique_id=675637913]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_dkafn")
+position = Vector2(0, -73.5)
+scale = Vector2(1.6016836, 2.577118)
+shape = SubResource("RectangleShape2D_dkafn")
 
 [node name="Energy particles" parent="detection area" unique_id=13275948 instance=ExtResource("5_fslag")]
 z_index = 2
 texture_filter = 1
 position = Vector2(0, 3)
-amount = 100
+amount = 15
 texture = SubResource("AtlasTexture_vrpq6")
 
 [node name="Energy particles2" parent="detection area" unique_id=1578243729 instance=ExtResource("5_fslag")]
 z_index = -1
 texture_filter = 1
 position = Vector2(0, 3)
-amount = 100
+amount = 15
 texture = SubResource("AtlasTexture_vrpq6")

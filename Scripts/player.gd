@@ -50,6 +50,10 @@ func _ready() -> void:
 		print("!!! ERROR: laserRay node not found.")
 
 func _physics_process(delta: float) -> void:
+	# --- Stamina handling ---
+	if not is_charging and not is_sprinting:
+		StatsComponent.current_stamina = move_toward(StatsComponent.current_stamina, StatsComponent.max_stamina, Elements.get_stat(10, StatsComponent.element_type) * 5 * delta)
+	
 	# --- MODE SWITCHING ---
 	if Input.is_action_just_pressed("SwitchMode"):
 		current_fight_mode = FightMode.MELEE if current_fight_mode == FightMode.RANGED else FightMode.RANGED
