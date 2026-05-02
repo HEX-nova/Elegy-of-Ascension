@@ -22,6 +22,7 @@ Elements="*uid://cptbxq6ridihf"
 StatsComponent="*uid://buog1mvryjtqv"
 DamageNumberDisplay="*uid://c70hil5spdowu"
 Inventory="*uid://ds4jx3kj6qrn7"
+LevelManager="*uid://dpomxa0i2f4tc"
 
 [editor]
 

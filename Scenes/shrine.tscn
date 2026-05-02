@@ -15,7 +15,7 @@ size = Vector2(444, 153)
 atlas = ExtResource("7_dkafn")
 region = Rect2(0, 0, 8, 1)
 
-[node name="Shrine" type="StaticBody2D" unique_id=1965085006 groups=["Interactable"]]
+[node name="Shrine" type="StaticBody2D" unique_id=1965085006 groups=["Interactable", "Portal"]]
 process_mode = 3
 collision_layer = 2
 collision_mask = 153
