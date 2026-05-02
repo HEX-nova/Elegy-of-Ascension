@@ -121,7 +121,6 @@ texture = ExtResource("8_1ux4e")
 
 [node name="Shrine" parent="." unique_id=1965085006 instance=ExtResource("10_w4dgm")]
 position = Vector2(5703, -2513)
-shrine_element = 5
 
 [node name="Port-basic" parent="." unique_id=1969725065 instance=ExtResource("11_5l7on")]
 position = Vector2(4712, -2443)

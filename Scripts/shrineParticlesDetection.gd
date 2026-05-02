@@ -69,5 +69,5 @@ func _process(_delta):
 			p.modulate.a = alpha_fade
 			p.scale_amount_min = s_min
 			p.scale_amount_max = s_max
-			var glow = lerp(1.0, 3.0, t)
+			var glow = lerp(0.75, 1.25, t)
 			p.self_modulate = Color(glow, glow, glow, alpha_fade)
