@@ -1,22 +1,22 @@
-extends StaticBody2D
+extends StaticBody2D # Or Area2D
 
 enum PortType { BASIC, CENTRAL }
-
-@export_group("Identity")
 @export var type: PortType = PortType.BASIC
-@export var location_id: String = "Region_1"
+@export var leads_to_new_scene: bool = false
+@export var target_scene_path: String = ""
 
 func _ready():
-	# If I am a Hub, I register myself so others can find me instantly
-	if type == PortType.CENTRAL:
-		LevelManager.register_hub(location_id, self)
+	# Optional: Make sure they are actually in the group
+	add_to_group("Portal")
+	# Trigger a scan if this is the first portal loading
+	if LevelManager.central_shrine == null:
+		LevelManager.scan_level_portals()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		if type == PortType.BASIC:
-			var hub = LevelManager.get_hub(location_id)
-			if hub:
-				LevelManager.teleport_player(hub.global_position)
+		if leads_to_new_scene and type == PortType.BASIC:
+			LevelManager.transition_to_level("res://Scenes/" + target_scene_path)
+		if type == PortType.BASIC and !leads_to_new_scene:
+			LevelManager.teleport_to_shrine()
 		else:
-			# Logic for opening the Hub Menu
-			print("Opening Menu for: ", location_id)
+			print("Slime is at the Central Hub.")

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://231vmy877x6l"]
+
+[ext_resource type="Texture2D" uid="uid://ee36iv7vm742" path="res://Sprites/Ray.jpeg" id="1_6j272"]
+
+[node name="DirectionalLight2D" type="PointLight2D" unique_id=458565578]
+color = Color(0.9934289, 1, 0.5210035, 1)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.9411765)
+texture = ExtResource("1_6j272")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1707003434]
+z_index = 5
+amount = 1000
+lifetime = 5.0
+emission_shape = 3
+emission_rect_extents = Vector2(80, 450)
+gravity = Vector2(5, -5)
+color = Color(1, 0.83762425, 0.7221588, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1712487248]
+color = Color(0.6432988, 0.6432984, 0.64329845, 1)

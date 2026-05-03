@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://r56tuh3k478c"]
+
+[ext_resource type="PackedScene" uid="uid://231vmy877x6l" path="res://Scenes/Godray.tscn" id="1_7q4ua"]
+
+[node name="EnvironmentModule" type="WorldEnvironment" unique_id=2008732781]
+
+[node name="DirectionalLight2D" parent="." unique_id=458565578 instance=ExtResource("1_7q4ua")]
