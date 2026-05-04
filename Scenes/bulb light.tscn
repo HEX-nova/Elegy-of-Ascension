@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dxr2oit0yu7d5"]
+
+[sub_resource type="Gradient" id="Gradient_neoju"]
+colors = PackedColorArray(0.9095941, 0.9095941, 0.9095941, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5dqwt"]
+gradient = SubResource("Gradient_neoju")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="Bulb" type="PointLight2D" unique_id=270575883]
+energy = 0.35
+blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.7254902)
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_5dqwt")
+texture_scale = 0.05
