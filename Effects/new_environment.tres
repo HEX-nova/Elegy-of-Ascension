@@ -1,0 +1,24 @@
+[gd_resource type="Environment" format=3 uid="uid://bb3ebmy2qy5r8"]
+
+[ext_resource type="Texture2D" uid="uid://c8yavqeb57ooh" path="res://Sprites/UI Bg.png" id="1_0ybc0"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ntde0"]
+panorama = ExtResource("1_0ybc0")
+
+[sub_resource type="Sky" id="Sky_7q4ua"]
+sky_material = SubResource("PanoramaSkyMaterial_ntde0")
+process_mode = 3
+
+[resource]
+background_mode = 1
+background_color = Color(0.556953, 0.556953, 0.556953, 1)
+sky = SubResource("Sky_7q4ua")
+ambient_light_color = Color(0.4210918, 0.4210918, 0.42109177, 1)
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.7284881, 0.7436996, 0.7739838, 1)
+fog_light_energy = 25.55
+fog_sun_scatter = 0.2
+fog_density = 1.0
+volumetric_fog_enabled = true

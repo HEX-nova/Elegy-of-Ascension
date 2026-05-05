@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://r56tuh3k478c"]
 
+[ext_resource type="Environment" uid="uid://bb3ebmy2qy5r8" path="res://Effects/new_environment.tres" id="1_7q4ua"]
+
 [node name="EnvironmentModule" type="WorldEnvironment" unique_id=2008732781]
+environment = ExtResource("1_7q4ua")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=812405017]
-color = Color(0.7877593, 0.7877593, 0.78775877, 1)
+color = Color(0.88481945, 0.88481945, 0.88481945, 1)

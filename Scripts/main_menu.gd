@@ -1,8 +1,8 @@
 extends Control
 
-@onready var start = $VBoxContainer/StartButton
-@onready var load = $VBoxContainer/LoadButton
-@onready var exit = $VBoxContainer/ExitButton
+@onready var start = $CanvasLayer/VBoxContainer/StartButton
+@onready var load = $CanvasLayer/VBoxContainer/LoadButton
+@onready var exit = $CanvasLayer/VBoxContainer/ExitButton
 
 @export_file("*.tscn") var first_level_path: String
 

@@ -13,10 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://4jwx264gmljw" path="res://Scenes/shrine.tscn" id="10_w4dgm"]
 [ext_resource type="PackedScene" uid="uid://db6oj7tcev6x7" path="res://Scenes/port_basic.tscn" id="11_5l7on"]
 [ext_resource type="PackedScene" uid="uid://231vmy877x6l" path="res://Scenes/Godray.tscn" id="13_88pgc"]
+[ext_resource type="PackedScene" uid="uid://ed21fscm4owd" path="res://Scenes/Dust.tscn" id="14_xmpot"]
 
 [node name="Level-00-alpha" type="Node2D" unique_id=30079068]
 
 [node name="EnvironmentModule" parent="." unique_id=2008732781 instance=ExtResource("1_kn7v3")]
+
+[node name="CanvasModulate" parent="EnvironmentModule" index="0" unique_id=812405017]
+color = Color(0.6651961, 0.6651961, 0.66519606, 1)
 
 [node name="TileMap" parent="." unique_id=1962942697 instance=ExtResource("1_mei2b")]
 
@@ -147,6 +151,11 @@ rotation = 0.61086524
 shadow_filter = 0
 height = 1.0
 
+[node name="CPUParticles2D" parent="." unique_id=1650545069 instance=ExtResource("14_xmpot")]
+position = Vector2(4374, -2769)
+
+[editable path="EnvironmentModule"]
 [editable path="TileMap"]
 [editable path="World Barrier"]
 [editable path="Door"]
+[editable path="DirectionalLight2D"]

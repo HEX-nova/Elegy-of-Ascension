@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ed21fscm4owd"]
+
+[ext_resource type="Texture2D" uid="uid://cld2vk0ks3nd7" path="res://Sprites/particle effect sheet.png" id="1_juf1o"]
+[ext_resource type="Script" uid="uid://bta57cgl3wkw1" path="res://Scripts/dust.gd" id="1_od6q6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mkgc"]
+atlas = ExtResource("1_juf1o")
+region = Rect2(80, 0, 16, 16)
+
+[node name="CPUParticles2D" type="CPUParticles2D" unique_id=1650545069]
+amount = 1000
+texture = SubResource("AtlasTexture_3mkgc")
+lifetime = 5.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1000)
+gravity = Vector2(0, 0)
+initial_velocity_max = 30.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+scale_amount_min = 0.35
+color = Color(0.9276783, 0.888267, 0.078666516, 1)
+script = ExtResource("1_od6q6")
+x_variation = 5.0
+y_variation = 3.0

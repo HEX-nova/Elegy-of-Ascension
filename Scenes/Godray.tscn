@@ -1,22 +1,8 @@
 [gd_scene format=3 uid="uid://231vmy877x6l"]
 
 [node name="Lighting" type="DirectionalLight2D" unique_id=313305187]
-position = Vector2(0, -109)
 color = Color(0.99215686, 1, 1, 1)
-energy = 0.5
 shadow_enabled = true
 shadow_color = Color(0.11372549, 0.11372549, 0.11372549, 0.7176471)
 shadow_filter = 1
 shadow_filter_smooth = 32.0
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1707003434]
-z_index = 5
-amount = 1000
-lifetime = 5.0
-emission_shape = 3
-emission_rect_extents = Vector2(80, 450)
-gravity = Vector2(5, -5)
-color = Color(1, 0.935887, 0.89001656, 1)
-
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1094678072]
-color = Color(0.9428228, 0.94282264, 0.94282264, 1)
