@@ -25,3 +25,8 @@ func Interact():
 		# Maybe add a "Tuned" sound effect here!
 	else:
 		print("Already tuned to this resonance.")
+
+func set_element(element: Elements.Type):
+	shrine_element = element
+	if slab.sprite_frames.has_animation(str(shrine_element)):
+		slab.play(str(shrine_element))

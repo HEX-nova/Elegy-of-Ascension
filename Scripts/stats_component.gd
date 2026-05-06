@@ -12,7 +12,7 @@ class_name Stats
 
 # --- THE FIX: The Setter ---
 # Whenever you change this in the Inspector, sync_with_matrix() fires automatically!
-@export var element_type: Elements.Type = Elements.Type.CRYO:
+@export var element_type: Elements.Type = Elements.Type.GLACIA:
 	set(value):
 		element_type = value
 		if is_inside_tree(): # Only sync if the node is actually in the game

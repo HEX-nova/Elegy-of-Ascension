@@ -27,7 +27,7 @@ polygon = PackedVector2Array(-12, -3, -20, -3, -20, -2, -24, -2, -24, -1, -27, -
 [node name="Cloud" type="Node2D" unique_id=45025]
 z_index = 5
 script = ExtResource("1_8hs1w")
-death_pos = 750.0
+death_pos = 1000.0
 speed_min = 10.0
 speed_max = 150.0
 

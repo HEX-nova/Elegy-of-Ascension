@@ -23,7 +23,7 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	if cloud_scene:
 		var new_cloud = cloud_scene.instantiate()
-		var spawn_y = randi_range(global_position.y -700, global_position.y -300)
+		var spawn_y = randi_range(global_position.y -650, global_position.y -400)
 		var spawn_x = global_position.x - 1000
 		new_cloud.position = Vector2(spawn_x, spawn_y)
 		get_tree().current_scene.add_child(new_cloud)

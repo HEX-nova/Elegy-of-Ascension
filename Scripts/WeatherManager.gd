@@ -2,7 +2,7 @@ extends Node
 
 # One source of truth
 enum State {CLEAR, STORMY, MISTY}
-var current_state = State.STORMY
+var current_state = State.CLEAR
 
 # Shared settings
 var cloud_speed_mult: float = 1.0

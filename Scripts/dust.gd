@@ -11,7 +11,12 @@ var time: float = 0.0
 func _ready() -> void:
 	# Set amount once and LEAVE IT. 
 	# Use enough for the storm, we will hide the extras for leaves.
-	amount = 1000 
+	if Weather.current_state == Weather.State.CLEAR :
+		amount = 100
+	elif Weather.current_state == Weather.State.STORMY:
+		amount = 2500
+	else: 
+		amount = 50
 	# Preprocess makes it look like they've been falling forever when the scene starts
 	preprocess = 5.0 
 	if Weather.current_state == Weather.State.STORMY:
@@ -30,17 +35,13 @@ func _process(delta: float) -> void:
 		lifetime = 20.0
 		if texture is AtlasTexture and texture.region != rain_region:
 			texture.region = rain_region
-			
+
 	else:
 		# --- LEAF MODE (Serene) ---
 		var sway_x = x_variation * sin(time)
 		var sway_y = y_variation * sin(time)
 		gravity = Vector2(sway_x, sway_y)
-		
-		# Here is the trick: Tint them green but make them 
-		# very transparent (0.2) to simulate "fewer" leaves
-		color = Color(0.29, 0.87, 0.5, 0.3) 
-		
+		color = Color(0.29, 0.67, 0.4, 1) 
 		scale_amount_min = 0.5
 		scale_amount_max = 1.0
 		lifetime = 20.0

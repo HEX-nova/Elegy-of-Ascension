@@ -6,6 +6,7 @@
 [node name="EnvironmentModule" type="WorldEnvironment" unique_id=2008732781]
 environment = ExtResource("1_7q4ua")
 script = ExtResource("2_tma06")
+state = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=812405017]
 color = Color(0.88481945, 0.88481945, 0.88481945, 1)

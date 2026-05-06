@@ -1,7 +1,7 @@
 # Elements.gd (Global Autoload)
 extends Node
 
-enum Type { CRYO, DENDRO, HYDRO, PYRO, GEO, ANEMO, ELECTRO, NHLM }
+enum Type { GLACIA, FLORA, AQUA, MAGMA, TERRA, AERA, ELECTRA, NHLM }
 
 # Rows = DEFENDER (The one getting hit) | Cols = ATTACKER (The source)
 var resonance_matrix = [
