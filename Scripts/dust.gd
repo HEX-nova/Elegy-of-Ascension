@@ -1,10 +1,48 @@
 extends CPUParticles2D
 
-@export var x_variation : float
-@export var y_variation : float
-@export var particles : CPUParticles2D = self
-var time = 0
+@export var x_variation : float = 50.0
+@export var y_variation : float = 20.0
+
+var leaf_region = Rect2(80, 0, 16, 16)
+var rain_region = Rect2(32, 0, 16, 16)
+
+var time: float = 0.0
+
+func _ready() -> void:
+	# Set amount once and LEAVE IT. 
+	# Use enough for the storm, we will hide the extras for leaves.
+	amount = 1000 
+	# Preprocess makes it look like they've been falling forever when the scene starts
+	preprocess = 5.0 
+	if Weather.current_state == Weather.State.STORMY:
+		global_position = Vector2(global_position.x, global_position.y + -500)
 
 func _process(delta: float) -> void:
 	time += delta
-	particles.gravity = Vector2(x_variation * sin(time), y_variation * sin(time))
+	
+	if Weather.current_state == Weather.State.STORMY:
+		# --- STORM MODE ---
+		gravity = Vector2(0, 500) # Use actual gravity for rain
+		# Use color to set opacity. alpha 1.0 = fully visible rain.
+		color = Color("a5f3fc") 
+		scale_amount_min = 0.1
+		scale_amount_max = 0.3
+		lifetime = 20.0
+		if texture is AtlasTexture and texture.region != rain_region:
+			texture.region = rain_region
+			
+	else:
+		# --- LEAF MODE (Serene) ---
+		var sway_x = x_variation * sin(time)
+		var sway_y = y_variation * sin(time)
+		gravity = Vector2(sway_x, sway_y)
+		
+		# Here is the trick: Tint them green but make them 
+		# very transparent (0.2) to simulate "fewer" leaves
+		color = Color(0.29, 0.87, 0.5, 0.3) 
+		
+		scale_amount_min = 0.5
+		scale_amount_max = 1.0
+		lifetime = 20.0
+		if texture is AtlasTexture and texture.region != leaf_region:
+			texture.region = leaf_region

@@ -1,24 +1,25 @@
 [gd_resource type="Environment" format=3 uid="uid://bb3ebmy2qy5r8"]
 
-[ext_resource type="Texture2D" uid="uid://c8yavqeb57ooh" path="res://Sprites/UI Bg.png" id="1_0ybc0"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ntde0"]
-panorama = ExtResource("1_0ybc0")
-
-[sub_resource type="Sky" id="Sky_7q4ua"]
-sky_material = SubResource("PanoramaSkyMaterial_ntde0")
-process_mode = 3
-
 [resource]
-background_mode = 1
+background_mode = 3
 background_color = Color(0.556953, 0.556953, 0.556953, 1)
-sky = SubResource("Sky_7q4ua")
+background_canvas_max_layer = 3
+ambient_light_source = 3
 ambient_light_color = Color(0.4210918, 0.4210918, 0.42109177, 1)
 glow_enabled = true
-fog_enabled = true
+glow_levels/2 = 1.0
+glow_levels/3 = 0.7
+glow_levels/4 = 0.6
+glow_normalized = true
+glow_intensity = 1.0
+glow_bloom = 0.5
+glow_blend_mode = 0
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 0.81
+glow_map_strength = 0.25
 fog_mode = 1
 fog_light_color = Color(0.7284881, 0.7436996, 0.7739838, 1)
 fog_light_energy = 25.55
 fog_sun_scatter = 0.2
 fog_density = 1.0
-volumetric_fog_enabled = true
+adjustment_saturation = 1.6

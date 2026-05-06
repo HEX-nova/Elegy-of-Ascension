@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://231vmy877x6l"]
 
-[node name="Lighting" type="DirectionalLight2D" unique_id=313305187]
+[node name="Lighting" type="DirectionalLight2D" unique_id=313305187 groups=["Sky"]]
 color = Color(0.99215686, 1, 1, 1)
 shadow_enabled = true
 shadow_color = Color(0.11372549, 0.11372549, 0.11372549, 0.7176471)
 shadow_filter = 1
 shadow_filter_smooth = 32.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1846166494]
+light_mask = 3
+color = Color(0.66519666, 0.66519594, 0.66519606, 1)

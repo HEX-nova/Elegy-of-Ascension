@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://sq3getvc2uva"]
+
+[ext_resource type="Script" uid="uid://dki4iscmrctwi" path="res://Scripts/cloud.gd" id="1_8hs1w"]
+[ext_resource type="Texture2D" uid="uid://dfa17deituup4" path="res://Sprites/Cloud.png" id="1_sm7h7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hs1w"]
+atlas = ExtResource("1_sm7h7")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u17if"]
+polygon = PackedVector2Array(27, 16, -6, 16, -25, 16, -25, 15, -27, 15, -27, 14, -28, 14, -28, 13, -29, 13, -29, 11, -30, 11, -30, 5, -28, 5, -28, 4, -26, 4, -26, 3, -24, 3, -24, 2, -19, 2, -19, 1, -18, 1, -18, 0, -17, 0, -17, -1, -14, -1, -14, 2, -14, 3, -16, 3, -16, 4, -17, 4, -17, 5, -18, 5, -18, 6, -19, 6, -19, 7, -16, 7, -16, 6, -14, 6, -14, 5, -9, 5, -9, 6, -6, 6, -6, 7, -5, 7, -5, 8, -3, 8, -3, 9, -2, 9, -2, 10, -1, 10, -1, 8, -2, 8, -2, 7, -3, 7, -3, 6, -4, 6, -4, 5, -5, 5, -5, 4, -6, 4, -6, 3, -8, 3, -8, 2, -12, 2, -12, -2, -12, -4, -10, -4, -10, -5, -9, -5, -9, -6, -7, -6, -7, -7, -1, -7, -1, -8, 2, -8, 2, -9, 9, -9, 9, -8, 12, -8, 12, -7, 15, -7, 15, -6, 18, -6, 18, -5, 20, -5, 20, -4, 22, -4, 22, -2, 24, -2, 24, -1, 25, -1, 25, 0, 25, 2, 27, 2, 27, 3, 29, 3, 29, 4, 31, 4, 31, 5, 32, 5, 32, 11, 31, 11, 31, 13, 30, 13, 30, 14, 29, 14, 29, 15, 27, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uourm"]
+atlas = ExtResource("1_sm7h7")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pdgc3"]
+polygon = PackedVector2Array(0, 0, 0, -4, -1, -4, -1, -3, -7, -3, -7, -2, -9, -2, -9, -1, -10, -1, -10, 0, -14, 0, -14, 2, -16, 2, -16, 3, -19, 3, -19, 4, -20, 4, -20, 5, -21, 5, -21, 6, -26, 6, -26, 7, -28, 7, -28, 8, -30, 8, -30, 9, -32, 9, -32, 12, -31, 12, -31, 14, -29, 14, -29, 15, -27, 15, -27, 16, 27, 16, 27, 15, 29, 15, 29, 14, 31, 14, 31, 12, 32, 12, 32, 9, 31, 9, 31, 8, 29, 8, 29, 7, 27, 7, 27, 6, 25, 6, 25, 3, 24, 3, 24, 2, 22, 2, 22, 0, 20, 0, 20, -1, 18, -1, 18, -2, 15, -2, 15, -3, 12, -3, 12, -4, 9, -4, 9, -5, 2, -5, 2, -4, 1, -4, 1, 4, 3, 4, 3, 3, 9, 3, 9, 4, 11, 4, 11, 5, 12, 5, 12, 6, 13, 6, 13, 7, 14, 7, 14, 8, 15, 8, 15, 9, 16, 9, 16, 11, 15, 11, 15, 10, 14, 10, 14, 9, 12, 9, 12, 8, 11, 8, 11, 7, 8, 7, 8, 6, 3, 6, 3, 7, 1, 7, 1, 8, -2, 8, -2, 7, -1, 7, -1, 6, 0, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgnxl"]
+atlas = ExtResource("1_sm7h7")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xmwcc"]
+polygon = PackedVector2Array(-12, -3, -20, -3, -20, -2, -24, -2, -24, -1, -27, -1, -27, 0, -28, 0, -28, 1, -29, 1, -29, 2, -30, 2, -30, 3, -32, 3, -32, 7, -31, 7, -31, 9, -30, 9, -30, 10, -29, 10, -29, 11, -27, 11, -27, 12, -24, 12, -24, 13, -23, 13, -23, 14, -21, 14, -21, 15, -12, 15, -12, 16, 27, 16, 27, 15, 28, 15, 28, 14, 29, 14, 29, 12, 30, 12, 30, 10, 31, 10, 31, 8, 32, 8, 32, 1, 31, 1, 31, -1, 30, -1, 30, -2, 28, -2, 28, -3, 27, -3, 27, -4, 25, -4, 25, -5, 23, -5, 23, 4, 20, 4, 19, 4, 19, 3, 18, 3, 18, 0, 17, 0, 17, -1, 16, -1, 16, -2, 15, -2, 15, -3, 14, -3, 14, -4, 11, -4, 11, -3, 10, -3, 10, -2, 8, -2, 8, -4, 6, -4, 6, 9, 4, 9, 4, 7, 3, 7, 3, 6, 1, 6, 1, 5, 0, 5, 0, 4, -1, 4, -1, 3, -2, 3, -2, 2, -8, 2, -8, 3, -10, 3, -10, 4, -12, 4, -12, 5, -14, 5, -14, 3, -13, 3, -13, 2, -12, 2)
+
+[node name="Cloud" type="Node2D" unique_id=45025]
+z_index = 5
+script = ExtResource("1_8hs1w")
+death_pos = 750.0
+speed_min = 10.0
+speed_max = 150.0
+
+[node name="01" type="Sprite2D" parent="." unique_id=403048880]
+visible = false
+texture = SubResource("AtlasTexture_8hs1w")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="01" unique_id=91023526]
+occluder = SubResource("OccluderPolygon2D_u17if")
+
+[node name="02" type="Sprite2D" parent="." unique_id=107065791]
+visible = false
+texture = SubResource("AtlasTexture_uourm")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="02" unique_id=804719853]
+occluder = SubResource("OccluderPolygon2D_pdgc3")
+
+[node name="03" type="Sprite2D" parent="." unique_id=566702095]
+visible = false
+texture = SubResource("AtlasTexture_lgnxl")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="03" unique_id=703714725]
+occluder = SubResource("OccluderPolygon2D_xmwcc")

@@ -15,6 +15,10 @@ run/main_scene="uid://d0r68ppqtast6"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://Sprites/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://dkt6cakdiixq5"
+
 [autoload]
 
 GameManager="*uid://dhq3sduxtek8"
@@ -23,6 +27,7 @@ StatsComponent="*uid://buog1mvryjtqv"
 DamageNumberDisplay="*uid://c70hil5spdowu"
 Inventory="*uid://ds4jx3kj6qrn7"
 LevelManager="*uid://dpomxa0i2f4tc"
+Weather="*uid://dv3n2nn6vb5nk"
 
 [display]
 
@@ -48,6 +53,7 @@ Interactable=""
 Portal=""
 Collectible=""
 InventoryUI=""
+Sky=""
 
 [gui]
 
@@ -144,4 +150,3 @@ textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
-environment/defaults/default_environment="uid://bb3ebmy2qy5r8"

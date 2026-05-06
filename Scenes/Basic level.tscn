@@ -173,3 +173,5 @@ use_kinematic_bodies = true
 [node name="Danger" type="TileMapLayer" parent="." unique_id=1134483993]
 use_parent_material = true
 tile_set = SubResource("TileSet_fr6qw")
+
+[node name="Sky" type="TileMapLayer" parent="." unique_id=636746138]

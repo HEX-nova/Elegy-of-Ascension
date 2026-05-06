@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c4vg6cjguimf8"]
+
+[ext_resource type="Script" uid="uid://r5nxbs5c7olj" path="res://Scripts/cloud_gen.gd" id="1_q2dnb"]
+
+[node name="CloudGen" type="Node2D" unique_id=1443574164 groups=["sky_group"]]
+script = ExtResource("1_q2dnb")
+
+[node name="Timer" type="Timer" parent="." unique_id=448286463]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
