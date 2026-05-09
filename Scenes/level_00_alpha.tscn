@@ -12,8 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dc8aggqgcaqc" path="res://Scenes/HUD.tscn" id="9_1ux4e"]
 [ext_resource type="PackedScene" uid="uid://4jwx264gmljw" path="res://Scenes/shrine.tscn" id="10_w4dgm"]
 [ext_resource type="PackedScene" uid="uid://db6oj7tcev6x7" path="res://Scenes/port_basic.tscn" id="11_5l7on"]
-[ext_resource type="PackedScene" uid="uid://231vmy877x6l" path="res://Scenes/Godray.tscn" id="13_88pgc"]
 [ext_resource type="PackedScene" uid="uid://ed21fscm4owd" path="res://Scenes/Dust.tscn" id="14_xmpot"]
+[ext_resource type="PackedScene" uid="uid://231vmy877x6l" path="res://Scenes/Godray.tscn" id="15_1f07g"]
+[ext_resource type="PackedScene" uid="uid://4wrgj16fibr2" path="res://Scenes/back_ground.tscn" id="15_1ss0j"]
 
 [node name="Level-00-alpha" type="Node2D" unique_id=30079068]
 
@@ -145,17 +146,15 @@ position = Vector2(6047, -2443)
 leads_to_new_scene = true
 target_scene_path = "level_00_beta.tscn"
 
-[node name="DirectionalLight2D" parent="." unique_id=458565578 instance=ExtResource("13_88pgc")]
-position = Vector2(4232, -2478)
-rotation = 0.61086524
-shadow_filter = 0
-height = 1.0
-
 [node name="CPUParticles2D" parent="." unique_id=1650545069 instance=ExtResource("14_xmpot")]
 position = Vector2(4374, -2769)
+
+[node name="BackGround" parent="." unique_id=1851807209 instance=ExtResource("15_1ss0j")]
+
+[node name="Lighting" parent="." unique_id=313305187 instance=ExtResource("15_1f07g")]
+position = Vector2(4382, -2561)
 
 [editable path="EnvironmentModule"]
 [editable path="TileMap"]
 [editable path="World Barrier"]
 [editable path="Door"]
-[editable path="DirectionalLight2D"]

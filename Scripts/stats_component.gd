@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 	if current_exp >= max_exp:
 		level_up()
 	_handle_regeneration(delta)
-	if Input.is_action_just_pressed("ui_x_key"): # Make sure "ui_x_key" is mapped to X in Input Map
+	if Input.is_action_just_released("ui_x_key"):
 		cycle_element()
 
 func _handle_regeneration(delta):
@@ -152,21 +152,15 @@ func die():
 	stats_changed.emit()
 
 func cycle_element():
-	# Use the actual count of your Enum keys to avoid out-of-bounds crashes
 	var element_count = Elements.Type.size() 
-	
-	# Use the Node's element_type, not the Global class if possible
 	var current = element_type 
 	var next = (current + 1) % element_count
-	
-	element_type = next # This triggers the @export setter and syncs stats!
-	
+	element_type = next
 	var element_name = Elements.Type.keys()[next]
 	var player = get_tree().get_first_node_in_group("Player")
-	
 	if player:
-		DamageNumberDisplay.display_number(element_name, player.global_position, Color.CYAN)
-	print("TUN SWITCHED TO: ", element_name)
+		DamageNumberDisplay.display_number(element_name, player.global_position, Color.WHITE)
+		print("Tun synced with : ", element_name)
 
 func take_fixed_damage(amount):
 	current_health -= amount

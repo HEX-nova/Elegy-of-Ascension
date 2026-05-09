@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://4wrgj16fibr2"]
+
+[sub_resource type="Gradient" id="Gradient_trj04"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_trj04"]
+gradient = SubResource("Gradient_trj04")
+width = 1080
+height = 600
+fill_to = Vector2(0, 1)
+
+[node name="BackGround" type="CanvasLayer" unique_id=1851807209]
+layer = -2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=222759431 groups=["Sky"]]
+z_index = -100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_trj04")

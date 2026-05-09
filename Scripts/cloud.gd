@@ -9,7 +9,7 @@ var current_speed: float
 
 func _ready() -> void:
 	# 1. Determine State from the Global Manager
-	stormy = (Weather.current_state == Weather.State.STORMY)
+	stormy = (Weather.current_state == Weather.State.STORMY or Weather.current_state == Weather.State.STORMYCUT)
 	
 	# 2. Visual Variation (Picking the sprite)
 	var cloud_variants = [$"01", $"02", $"03"]

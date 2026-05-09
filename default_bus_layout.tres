@@ -6,4 +6,4 @@ pitch_scale = 1.5
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectPitchShift_j3pel")
-bus/0/effect/0/enabled = true
+bus/0/effect/0/enabled = false

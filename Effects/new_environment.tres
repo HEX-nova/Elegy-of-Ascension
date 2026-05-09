@@ -4,9 +4,9 @@
 background_mode = 3
 background_color = Color(0.556953, 0.556953, 0.556953, 1)
 background_canvas_max_layer = 3
-ambient_light_source = 3
+ambient_light_source = 1
 ambient_light_color = Color(0.4210918, 0.4210918, 0.42109177, 1)
-glow_enabled = true
+reflected_light_source = 1
 glow_levels/2 = 1.0
 glow_levels/3 = 0.7
 glow_levels/4 = 0.6

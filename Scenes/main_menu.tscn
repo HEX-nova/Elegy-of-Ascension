@@ -2,21 +2,14 @@
 
 [ext_resource type="Script" uid="uid://4xut6dkyvwlh" path="res://Scripts/main_menu.gd" id="1_28flt"]
 [ext_resource type="PackedScene" uid="uid://c8wmpvu4sknia" path="res://Scenes/Basic level.tscn" id="2_48xlc"]
-[ext_resource type="PackedScene" uid="uid://231vmy877x6l" path="res://Scenes/Godray.tscn" id="3_1ehe0"]
 [ext_resource type="PackedScene" uid="uid://r56tuh3k478c" path="res://Scenes/environment_module.tscn" id="4_ce3w2"]
 [ext_resource type="PackedScene" uid="uid://ed21fscm4owd" path="res://Scenes/Dust.tscn" id="5_n45e2"]
 [ext_resource type="PackedScene" uid="uid://c4vg6cjguimf8" path="res://Scenes/cloud_gen.tscn" id="6_cp0ys"]
 [ext_resource type="PackedScene" uid="uid://4jwx264gmljw" path="res://Scenes/shrine.tscn" id="6_opfnp"]
 [ext_resource type="PackedScene" uid="uid://sq3getvc2uva" path="res://Scenes/cloud.tscn" id="7_yhxw7"]
 [ext_resource type="AudioStream" uid="uid://b4127qy1vglku" path="res://Sounds/Elegy.wav" id="9_trj04"]
-
-[sub_resource type="Gradient" id="Gradient_trj04"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_trj04"]
-gradient = SubResource("Gradient_trj04")
-width = 1080
-height = 600
-fill_to = Vector2(0, 1)
+[ext_resource type="PackedScene" uid="uid://4wrgj16fibr2" path="res://Scenes/back_ground.tscn" id="10_16hvj"]
+[ext_resource type="PackedScene" uid="uid://231vmy877x6l" path="res://Scenes/Godray.tscn" id="10_vr1f0"]
 
 [node name="MainMenu" type="Control" unique_id=725479235]
 layout_mode = 3
@@ -28,7 +21,6 @@ first_level_path = "uid://dfhtak7q7v308"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1336180647]
 stream = ExtResource("9_trj04")
-pitch_scale = 0.5
 autoplay = true
 max_distance = 4096.0
 
@@ -77,13 +69,7 @@ tile_map_data = PackedByteArray("AADj/wEAAQACAAEAAADj/wIAAQACAAEAAADj/wMAAQACAAE
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2023373267]
 position = Vector2(0, -200)
-
-[node name="Lighting" parent="." unique_id=313305187 instance=ExtResource("3_1ehe0")]
-position = Vector2(-155, -109)
-rotation = 0.61086524
-color = Color(0.99215686, 1, 1, 0.8039216)
-shadow_color = Color(0.11372549, 0.11372549, 0.11372549, 0.22745098)
-shadow_filter_smooth = 1.0
+zoom = Vector2(2, 2)
 
 [node name="CPUParticles2D" parent="." unique_id=1650545069 instance=ExtResource("5_n45e2")]
 z_index = 1
@@ -117,22 +103,18 @@ scale_amount_min = 0.1
 color = Color(0.9952864, 0.97389024, 0.5142062, 1)
 
 [node name="CloudGen" parent="." unique_id=1443574164 instance=ExtResource("6_cp0ys")]
+position = Vector2(-100, 0)
 cloud_scene = ExtResource("7_yhxw7")
 
 [node name="EnvironmentModule" parent="." unique_id=2008732781 instance=ExtResource("4_ce3w2")]
-state = 0
+state = 4
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1085807860]
-layer = -2
+[node name="BackGround" parent="." unique_id=1851807209 instance=ExtResource("10_16hvj")]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer2" unique_id=1477105605 groups=["Sky"]]
-z_index = -100
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture2D_trj04")
+[node name="Lighting" parent="." unique_id=313305187 instance=ExtResource("10_vr1f0")]
+position = Vector2(-309, -152)
 
 [editable path="TileMap"]
 [editable path="Shrine"]
+[editable path="EnvironmentModule"]
+[editable path="BackGround"]

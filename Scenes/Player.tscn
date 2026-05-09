@@ -25,7 +25,7 @@ visible = false
 light_mask = 3
 texture_filter = 1
 sprite_frames = ExtResource("2_5ixxa")
-animation = &"Sprint"
+animation = &"Wall"
 
 [node name="1" type="AnimatedSprite2D" parent="." unique_id=114614880]
 visible = false
