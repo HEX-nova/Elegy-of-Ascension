@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://chmj2ocvt3cr6"]
+
+[ext_resource type="Script" uid="uid://fs8xxjqlh7sd" path="res://Scripts/MeleeAttack.gd" id="1_qv81b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qv81b"]
+size = Vector2(10, 44.54773)
+
+[node name="Weapon" type="Area2D" unique_id=1762180136 groups=["Collectible"]]
+collision_layer = 16
+collision_mask = 140
+script = ExtResource("1_qv81b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=938167008]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=648284052]
+position = Vector2(-0.2500003, 0.2500003)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_qv81b")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

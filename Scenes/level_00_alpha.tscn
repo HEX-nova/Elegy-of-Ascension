@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://dfhtak7q7v308"]
 
-[ext_resource type="PackedScene" uid="uid://r56tuh3k478c" path="res://Scenes/environment_module.tscn" id="1_kn7v3"]
 [ext_resource type="PackedScene" uid="uid://c8wmpvu4sknia" path="res://Scenes/Basic level.tscn" id="1_mei2b"]
 [ext_resource type="PackedScene" uid="uid://b2vboas5sumof" path="res://Scenes/Player.tscn" id="2_8puox"]
 [ext_resource type="PackedScene" uid="uid://eo70kumbk4xt" path="res://Scenes/world_barrier.tscn" id="2_8urwn"]
@@ -17,11 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://4wrgj16fibr2" path="res://Scenes/back_ground.tscn" id="15_1ss0j"]
 
 [node name="Level-00-alpha" type="Node2D" unique_id=30079068]
-
-[node name="EnvironmentModule" parent="." unique_id=2008732781 instance=ExtResource("1_kn7v3")]
-
-[node name="CanvasModulate" parent="EnvironmentModule" index="0" unique_id=812405017]
-color = Color(0.6651961, 0.6651961, 0.66519606, 1)
 
 [node name="TileMap" parent="." unique_id=1962942697 instance=ExtResource("1_mei2b")]
 
@@ -154,7 +148,6 @@ position = Vector2(4374, -2769)
 [node name="Lighting" parent="." unique_id=313305187 instance=ExtResource("15_1f07g")]
 position = Vector2(4382, -2561)
 
-[editable path="EnvironmentModule"]
 [editable path="TileMap"]
 [editable path="World Barrier"]
 [editable path="Door"]

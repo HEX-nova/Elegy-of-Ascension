@@ -83,7 +83,7 @@ func _handle_regeneration(delta):
 
 func take_damage(incoming_atk: float, attacker_element: int):
 	var multiplier = Elements.get_multiplier(attacker_element, element_type)
-	var damage_after_defense = (incoming_atk * incoming_atk) / (incoming_atk + defense)
+	var damage_after_defense = incoming_atk / (defense + 1)
 	var final_damage = snapped(damage_after_defense * multiplier, 0.1)
 	
 	if can_take_damage:

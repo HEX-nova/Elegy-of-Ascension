@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dai5q4l0jne5y"]
+
+[ext_resource type="Texture2D" uid="uid://d2rmjd4emgnry" path="res://Sprites/Lightning segment.png" id="1_lj2d7"]
+[ext_resource type="Script" uid="uid://dbqrij3irvcdb" path="res://Scripts/kaminari.gd" id="2_l3csc"]
+[ext_resource type="Environment" uid="uid://bro3rdpis1i6v" path="res://Effects/lightning env.tres" id="3_l3csc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lj2d7"]
+blend_mode = 1
+
+[node name="Kaminari" type="Line2D" unique_id=860456308 node_paths=PackedStringArray("start_node", "end_node")]
+material = SubResource("CanvasItemMaterial_lj2d7")
+width = 5.0
+default_color = Color(1, 1, 1.5, 1)
+texture = ExtResource("1_lj2d7")
+texture_mode = 1
+script = ExtResource("2_l3csc")
+start_node = NodePath("Start")
+end_node = NodePath("End")
+segment_unit_length = 10.0
+amplitude = 10.0
+fire_rate = 0.2
+
+[node name="Start" type="Node2D" parent="." unique_id=1472229412]
+position = Vector2(500, 0)
+
+[node name="End" type="Node2D" parent="." unique_id=598918822]
+position = Vector2(-500, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=931895823]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1042878277]
+environment = ExtResource("3_l3csc")

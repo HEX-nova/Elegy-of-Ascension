@@ -12,7 +12,8 @@
 [ext_resource type="SpriteFrames" uid="uid://gbulv67m0dgj" path="res://Animation Modules/Electro Animations.tres" id="8_yoq75"]
 [ext_resource type="Texture2D" uid="uid://bhwf4a1ekxajr" path="res://Sprites/Player laser muzzle.png" id="11_glx4g"]
 [ext_resource type="Texture2D" uid="uid://t4u26xd4f148" path="res://Sprites/Player laser strip.png" id="12_miouo"]
-[ext_resource type="PackedScene" uid="uid://chmj2ocvt3cr6" path="res://Scenes/sword.tscn" id="13_miouo"]
+[ext_resource type="PackedScene" uid="uid://chmj2ocvt3cr6" path="res://Scenes/weapon.tscn" id="13_miouo"]
+[ext_resource type="Resource" uid="uid://cs7i26buyu1xo" path="res://Resources/Sword.tres" id="14_1e7my"]
 [ext_resource type="Script" uid="uid://ds4jx3kj6qrn7" path="res://Scripts/inventory.gd" id="14_o3h8g"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1420195861 groups=["Player"]]
@@ -117,12 +118,13 @@ position = Vector2(6, 0)
 target_position = Vector2(500, 0)
 collision_mask = 174
 
-[node name="Sword" parent="." unique_id=1762180136 instance=ExtResource("13_miouo")]
-position = Vector2(3, 2)
-
 [node name="Inventory" type="Node" parent="." unique_id=1537608581]
 process_mode = 3
 script = ExtResource("14_o3h8g")
+
+[node name="Weapon" parent="." unique_id=1762180136 instance=ExtResource("13_miouo")]
+position = Vector2(4, 3)
+weapon = ExtResource("14_1e7my")
 
 [connection signal="body_entered" from="Damage detector" to="." method="_on_damage_detector_body_entered"]
 [connection signal="area_entered" from="Interaction area" to="." method="_on_interaction_area_area_entered"]

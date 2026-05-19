@@ -25,7 +25,7 @@ func set_weather(new_state: int):
 			sky_color_top = Color("199affff")
 			sky_color_bottom = Color("43b2b2ff")
 			sun_energy = 1.0
-			world_tint = Color(0.816, 0.816, 0.816, 0.686)
+			world_tint = Color(0.972, 0.972, 0.972, 0.686)
 		State.STORMY:
 			cloud_speed_mult = 3.0
 			cloud_density_mult = 0.1
@@ -38,15 +38,15 @@ func set_weather(new_state: int):
 			cloud_density_mult = 2.0
 			sky_color_top = Color("a4adb1ff")
 			sky_color_bottom = Color("9d9d9dff")
-			sun_energy = 0.6
-			world_tint = Color(0.663, 0.663, 0.737, 0.639) # The foggy tint
+			sun_energy = 0.7
+			world_tint = Color(0.404, 0.404, 0.482, 0.247) # The foggy tint
 		State.CLEARCUT:
 			cloud_speed_mult = 1.0
 			cloud_density_mult = 3.0
 			sky_color_top = Color("4ca9ff")
 			sky_color_bottom = Color("66dcdc")
 			sun_energy = 1.1
-			world_tint = Color(0.868, 0.868, 0.868, 1.0) # Clear white light
+			world_tint = Color(0.868, 0.868, 0.868, 1.0)
 		State.STORMYCUT:
 			cloud_speed_mult = 3.0
 			cloud_density_mult = 0.1
@@ -60,7 +60,7 @@ func set_weather(new_state: int):
 			sky_color_top = Color("384f4fff")
 			sky_color_bottom = Color("414041ff")
 			sun_energy = 0.3
-			world_tint = Color(0.486, 0.485, 0.569, 1.0) # The foggy tint
+			world_tint = Color(0.404, 0.404, 0.482, 0.247) # The foggy tint
 
 	# Update the Sky Texture
 	if sky_node and sky_node.texture is GradientTexture2D:

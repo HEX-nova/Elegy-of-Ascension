@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponItem" format=3 uid="uid://cs7i26buyu1xo"]
+
+[ext_resource type="Script" uid="uid://ci10sbwi55h6d" path="res://Scripts/WeaponItem.gd" id="1_j662n"]
+[ext_resource type="Texture2D" uid="uid://dipcdnecr7w4p" path="res://Sprites/Sword.png" id="1_toyaj"]
+
+[resource]
+script = ExtResource("1_j662n")
+name = "Simple Sword"
+weight = 5.0
+value = 4
+icon = ExtResource("1_toyaj")
+type = 3
+metadata/_custom_type_script = "uid://ci10sbwi55h6d"

@@ -1,5 +1,11 @@
 extends Area2D
 
+@export var weapon : WeaponItem
+@onready var sprite : Sprite2D = $Sprite2D
+
+func _ready() -> void:
+	sprite.texture = weapon.icon
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
 		var stats = body.find_child("EnemyStatsComponent")

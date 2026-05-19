@@ -5,7 +5,7 @@ enum FightMode { MELEE, RANGED }
 var current_fight_mode = FightMode.RANGED
 
 # --- CONSTANTS ---
-const MIN_JUMP = -350.0   
+const MIN_JUMP = -450.0   
 const MAX_JUMP = -750.0   
 const MIN_CHARGE = 0.35   
 const MAX_CHARGE = 1.5    
@@ -33,7 +33,7 @@ var laser_damage_tick = 0.75
 @onready var stats = StatsComponent
 var projectile = PackedScene
 @onready var can_interact: Node2D = null
-@onready var sword: Area2D = $Sword
+@onready var sword: Area2D = $Weapon
 
 # --- LASER NODES ---
 @onready var laser_muzzle = get_node_or_null("Muzzle") 
@@ -83,17 +83,16 @@ func _physics_process(delta: float) -> void:
 			
 			# WALL CLIMB/JUMP LOGIC
 			if sprint_pressed and stats.current_stamina > 0:
-				# This is your "Up the wall" climb
-				velocity.y = MIN_JUMP * 0.8 # Slightly slower than a full jump
+				velocity.y = MIN_JUMP / stats.weight
 				stats.current_stamina -= STAMINA_DRAIN * delta
 				stats.stats_changed.emit()
 			else:
 				# Standard slide
-				velocity.y = min(velocity.y + get_gravity().y * delta, WALL_SLIDE_SPEED)
+				velocity.y = min(velocity.y + get_gravity().y * delta, WALL_SLIDE_SPEED) / stats.weight
 			
 			if jump_just_pressed:
 				# This is your "Off the wall" jump
-				velocity.y = MIN_JUMP
+				velocity.y = MIN_JUMP / stats.weight
 				velocity.x = wall_dir * stats.move_speed
 		else:
 			is_wall_sliding = false
