@@ -13,4 +13,7 @@ script = ExtResource("1_ys0gr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1620014455]
 shape = SubResource("CircleShape2D_ys0gr")
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1930583925]
+enable_mode = 2
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

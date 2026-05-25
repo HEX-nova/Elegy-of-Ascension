@@ -1,7 +1,7 @@
 extends Area2D
 
 var direction = Vector2.ZERO
-var speed = 400.0
+var speed = 800.0
 var damage_amount = round(StatsComponent.attack)
 
 # Setter handles visual updates automatically

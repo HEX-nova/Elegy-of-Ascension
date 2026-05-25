@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://e507ltvr6472" path="res://Sprites/Outworld Spritesheet.png" id="1_26jfr"]
 [ext_resource type="Texture2D" uid="uid://dr8e8h7y5mpmy" path="res://Sprites/TileMap.png" id="1_yj5sm"]
 [ext_resource type="Texture2D" uid="uid://b8xtqrh37kt3u" path="res://Sprites/Bush.png" id="3_addtv"]
+[ext_resource type="Texture2D" uid="uid://dfa17deituup4" path="res://Sprites/Cloud.png" id="4_61w35"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a5lhj"]
 polygon = PackedVector2Array(-16, -4, -15, -4, -15, -5, -14, -5, -14, -6, -13, -6, -13, -7, -12, -7, -12, -8, -11, -8, -11, -9, -9, -9, -9, -10, -7, -10, -7, -11, -6, -11, -6, -12, -3, -12, -3, -13, 2.5, -13, 3, -13, 3, -12, 6, -12, 6, -11, 7, -11, 7, -10, 9, -10, 9, -9, 10, -9, 10, -7, 11, -7, 11, -5, 12, -5, 12, -2, 13, -2, 13, 14, 14, 14, 14, 16, -16, 16)
@@ -204,6 +205,28 @@ texture_region_size = Vector2i(32, 32)
 0:0/animation_frame_3/duration = 1.0
 0:0/0 = 0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vbo0s"]
+polygon = PackedVector2Array(21.5, 2.5, 21.5, 5, 32, 5, 32, 10, 31, 10, 31, 12, 29, 12, 29, 13, 26, 13, 26, 14, -25, 14, -25, 13, -27, 13, -27, 12, -29, 12, -29, 10, -30, 10, -30, 5, -19.5, 5, -19.5, 7, -16, 7, -16, 6, -14, 6, -14, 5, -9, 5, -9, 6, -6, 6, -6, 7, -5, 7, -5, 8, -3, 8, -3, 9, -2, 9, -2, 10, -1, 10, 2.5, 10, 2.5, 2.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kihsr"]
+polygon = PackedVector2Array(26.5, 6.5, 26.5, 9, 32, 9, 32, 11, 31, 11, 31, 13, 26, 13, 26, 14, -25, 14, -27, 14, -27, 13, -31, 13, -31, 11, -32, 11, -32, 9, -30, 9, -30, 8, -28, 8, -28, 7, -26, 7, -26, 6, -11, 6, -11, 8, 1, 8, 1, 7, 3, 7, 3, 6, 8, 6, 8, 7, 11, 7, 11, 8, 12, 8, 12, 9, 14, 9, 14, 10, 15, 10, 15, 11, 18, 11, 18, 6.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lpjyh"]
+polygon = PackedVector2Array(26.5, 6.5, 26.5, 9, 32, 9, 32, 11, 31, 11, 31, 13, 26, 13, 26, 14, -25, 14, -27, 14, -27, 13, -31, 13, -31, 11, -32, 11, -32, 9, -30, 9, -30, 8, -28, 8, -28, 7, -26, 7, -26, 6, -11, 6, -11, 8, 1, 8, 1, 7, 3, 7, 3, 6, 8, 6, 8, 7, 11, 7, 11, 8, 12, 8, 12, 9, 14, 9, 14, 10, 15, 10, 15, 11, 18, 11, 18, 6.5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vcuob"]
+texture = ExtResource("4_61w35")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(2, 1)
+0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_vbo0s")
+2:0/size_in_atlas = Vector2i(2, 1)
+2:0/0 = 0
+2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_kihsr")
+4:0/size_in_atlas = Vector2i(2, 1)
+4:0/0 = 0
+4:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_lpjyh")
+
 [sub_resource type="TileSet" id="TileSet_fr6qw"]
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 2
@@ -213,9 +236,11 @@ physics_layer_1/collision_layer = 4
 sources/1 = SubResource("TileSetAtlasSource_5s8la")
 sources/0 = SubResource("TileSetAtlasSource_pldkj")
 sources/2 = SubResource("TileSetAtlasSource_61w35")
+sources/3 = SubResource("TileSetAtlasSource_vcuob")
 
 [node name="TileMap" type="TileMap" unique_id=1962942697]
 tile_set = SubResource("TileSet_fr6qw")
+rendering_quadrant_size = 128
 collision_animatable = true
 format = 2
 
@@ -224,8 +249,21 @@ use_parent_material = true
 tile_set = SubResource("TileSet_fr6qw")
 use_kinematic_bodies = true
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Safe" unique_id=1274021840]
+
 [node name="Danger" type="TileMapLayer" parent="." unique_id=1134483993]
 use_parent_material = true
 tile_set = SubResource("TileSet_fr6qw")
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Danger" unique_id=1020293088]
+
 [node name="Sky" type="TileMapLayer" parent="." unique_id=636746138]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Sky" unique_id=1757951220]
+
+[node name="Global light" type="DirectionalLight2D" parent="." unique_id=130758636]
+rotation = 0.61086524
+energy = 0.7
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.6392157)
+shadow_filter = 1

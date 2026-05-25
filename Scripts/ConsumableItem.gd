@@ -7,7 +7,7 @@ enum Stat {ATTACK, DEFENSE, HEALTH, ATHEER, STAMINA, SPEED}
 @export var boost_value: int = 20
 @export var boost_duration: float = 60.0
 
-func use():
+func use(player:Node):
 	# 1. Map the Enum to the actual variable names in your StatsComponent
 	var stat_map = {
 		Stat.ATTACK: "attack",

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const ITEM_SCENE = preload("res://Scenes/item.tscn")
+const ITEM_SCENE = preload("res://Resources/item.tscn")
 
 @onready var stats_comp = StatsComponent
 @onready var list_container = $"Inventory/BG/scroll/unit"
@@ -10,11 +10,13 @@ const ITEM_SCENE = preload("res://Scenes/item.tscn")
 @onready var button_use = $"Inventory/BG/Buttons/use"
 @onready var button_discard = $"Inventory/BG/Buttons/discard"
 @onready var button_cancel = $"Inventory/BG/Buttons/cancel"
+var player: Node
 
 
 var selected_item: ItemData = null
 
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("Player")
 	visible = false
 	update_stat_labels()
 	_toggle_action_buttons(false)
@@ -104,7 +106,7 @@ func _refresh_ui():
 func _on_use_pressed():
 	if selected_item:
 		# The item decides what to do!
-		var was_consumed = selected_item.use()
+		var was_consumed = selected_item.use(player)
 		
 		if was_consumed:
 			selected_item.quantity -= 1
@@ -140,7 +142,6 @@ func _spawn_item_in_world(data: ItemData):
 	
 	# Get the player's current position
 	# (Assuming you have a global reference to the player or they are in a 'Player' group)
-	var player = get_tree().get_first_node_in_group("Player")
 	if player:
 		# Drop it slightly offset so the player doesn't instantly pick it up again
 		new_item.global_position = player.global_position + Vector2(20, 0)

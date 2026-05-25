@@ -11,5 +11,5 @@ enum Type {CONSUMABLE, KEY, TRADABLE, WEAPON, EQUIPMENT}
 @export var type : Type = Type.CONSUMABLE
 @export var description : String = ""
 
-func use():
+func use(player: Node):
 	pass

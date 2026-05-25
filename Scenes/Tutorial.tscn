@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8wmpvu4sknia" path="res://Scenes/Basic level.tscn" id="1_rlm2d"]
 [ext_resource type="PackedScene" uid="uid://b2vboas5sumof" path="res://Scenes/Player.tscn" id="2_uo1fs"]
-[ext_resource type="Resource" uid="uid://bm6bhv4q0qle1" path="res://Resources/Key-wood.tres" id="3_5gw1s"]
+[ext_resource type="Resource" uid="uid://bm6bhv4q0qle1" path="res://Resources/Keys/Key-wood.tres" id="3_5gw1s"]
 [ext_resource type="PackedScene" uid="uid://cswrnacaxv7go" path="res://Scenes/coin.tscn" id="3_uo1fs"]
 [ext_resource type="PackedScene" uid="uid://dc8aggqgcaqc" path="res://Scenes/HUD.tscn" id="4_7bloo"]
 [ext_resource type="PackedScene" uid="uid://8t7koapnounk" path="res://Scenes/practice_target.tscn" id="6_3j26a"]
@@ -12,8 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://shlyiefhal5i" path="res://Scenes/thornspitter.tscn" id="10_dlght"]
 [ext_resource type="PackedScene" uid="uid://cr8xabaqjefba" path="res://Scenes/cinderbug.tscn" id="11_8i65c"]
 [ext_resource type="PackedScene" uid="uid://db6oj7tcev6x7" path="res://Scenes/port_basic.tscn" id="12_m35rq"]
-[ext_resource type="PackedScene" uid="uid://c61coqkmcqxq8" path="res://Scenes/item.tscn" id="12_sgy12"]
-[ext_resource type="Resource" uid="uid://bfv4b3y3cjg1h" path="res://Resources/Apple.tres" id="13_5gw1s"]
+[ext_resource type="PackedScene" uid="uid://c61coqkmcqxq8" path="res://Resources/item.tscn" id="12_sgy12"]
+[ext_resource type="Resource" uid="uid://bfv4b3y3cjg1h" path="res://Resources/Consumables/Apple.tres" id="13_5gw1s"]
+[ext_resource type="PackedScene" uid="uid://231vmy877x6l" path="res://Scenes/Godray.tscn" id="15_brn58"]
 
 [node name="Node2D" type="Node2D" unique_id=117963092]
 
@@ -175,6 +176,10 @@ position = Vector2(-760, -1040)
 
 [node name="Thornspitter3" parent="." unique_id=652828009 instance=ExtResource("10_dlght")]
 position = Vector2(-736, -1040)
+
+[node name="Lighting" parent="." unique_id=313305187 instance=ExtResource("15_brn58")]
+position = Vector2(1080, -1624)
+shadow_filter = 1
 
 [editable path="TileMap"]
 [editable path="Practice Target"]

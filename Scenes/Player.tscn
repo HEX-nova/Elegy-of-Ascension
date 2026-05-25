@@ -13,8 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://bhwf4a1ekxajr" path="res://Sprites/Player laser muzzle.png" id="11_glx4g"]
 [ext_resource type="Texture2D" uid="uid://t4u26xd4f148" path="res://Sprites/Player laser strip.png" id="12_miouo"]
 [ext_resource type="PackedScene" uid="uid://chmj2ocvt3cr6" path="res://Scenes/weapon.tscn" id="13_miouo"]
-[ext_resource type="Resource" uid="uid://cs7i26buyu1xo" path="res://Resources/Sword.tres" id="14_1e7my"]
 [ext_resource type="Script" uid="uid://ds4jx3kj6qrn7" path="res://Scripts/inventory.gd" id="14_o3h8g"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o3h8g"]
+polygon = PackedVector2Array(7, 15, 7, 16, -7, 16, -7, 15, -8, 15, -8, 14, -9, 14, -9, 7, -8, 7, -8, 4, -7, 4, -4, 2, 0, 2, 4, 4, 6, 7, 7, 13)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1420195861 groups=["Player"]]
 z_index = 9
@@ -22,17 +24,15 @@ collision_mask = 238
 script = ExtResource("1_kyqiw")
 
 [node name="0" type="AnimatedSprite2D" parent="." unique_id=1253257393]
-visible = false
-light_mask = 3
 texture_filter = 1
 sprite_frames = ExtResource("2_5ixxa")
-animation = &"Wall"
+animation = &"Idle"
 
 [node name="1" type="AnimatedSprite2D" parent="." unique_id=114614880]
 visible = false
 texture_filter = 1
 sprite_frames = ExtResource("3_nn08x")
-animation = &"Sprint"
+animation = &"Air"
 
 [node name="3" type="AnimatedSprite2D" parent="." unique_id=1870250138]
 visible = false
@@ -76,10 +76,10 @@ polygon = PackedVector2Array(-3, -1, -3, 0, -5, 0, -5, 1, -6, 1, -6, 2, -7, 2, -
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1193895540]
 zoom = Vector2(2, 2)
-position_smoothing_enabled = true
 position_smoothing_speed = 12.0
 
 [node name="Damage detector" type="Area2D" parent="." unique_id=217196983]
+visible = false
 collision_mask = 204
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Damage detector" unique_id=284049249]
@@ -103,6 +103,7 @@ polygon = PackedVector2Array(-3, -1, -3, 0, -5, 0, -5, 1, -6, 1, -6, 2, -7, 2, -
 
 [node name="Muzzle" type="Sprite2D" parent="." unique_id=1589913487]
 visible = false
+light_mask = 2
 position = Vector2(11, 7)
 texture = ExtResource("11_glx4g")
 
@@ -123,8 +124,10 @@ process_mode = 3
 script = ExtResource("14_o3h8g")
 
 [node name="Weapon" parent="." unique_id=1762180136 instance=ExtResource("13_miouo")]
-position = Vector2(4, 3)
-weapon = ExtResource("14_1e7my")
+position = Vector2(0, 9)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1312961956]
+occluder = SubResource("OccluderPolygon2D_o3h8g")
 
 [connection signal="body_entered" from="Damage detector" to="." method="_on_damage_detector_body_entered"]
 [connection signal="area_entered" from="Interaction area" to="." method="_on_interaction_area_area_entered"]

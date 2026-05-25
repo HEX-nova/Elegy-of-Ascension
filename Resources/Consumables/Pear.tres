@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ConsumableItem" format=3 uid="uid://bubphbt4plan3"]
+
+[ext_resource type="Texture2D" uid="uid://b1ekkak0byld" path="res://Sprites/green pear.png" id="1_0lkc1"]
+[ext_resource type="Script" uid="uid://vumep2cojxja" path="res://Scripts/ConsumableItem.gd" id="1_b4oa8"]
+
+[resource]
+script = ExtResource("1_b4oa8")
+affected_stat = 5
+boost_value = 50
+name = "Pear"
+value = 5
+icon = ExtResource("1_0lkc1")
+description = "An ordinary looking pear, with bittersweet after taste. Energizes the user for 60 seconds."
+metadata/_custom_type_script = "uid://vumep2cojxja"

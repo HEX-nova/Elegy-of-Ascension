@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="S01"
-run/main_scene="uid://d0r68ppqtast6"
+config/name="Elegy"
+run/main_scene="uid://dfhtak7q7v308"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://Sprites/icon.svg"
 
@@ -31,11 +31,8 @@ Weather="*uid://dv3n2nn6vb5nk"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/extend_to_title=true
-window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=0
 
 [editor]
 
@@ -150,5 +147,31 @@ Inventory={
 textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/directional_shadow/size=2048
+lights_and_shadows/directional_shadow/size.mobile=256
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=2
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality.mobile=2
+global_illumination/gi/use_half_resolution=true
+environment/ssao/quality=1
+environment/ssil/quality=1
+occlusion_culling/occlusion_rays_per_thread=64
+environment/glow/upscale_mode=0
+lights_and_shadows/positional_shadow/atlas_size=2048
+lights_and_shadows/positional_shadow/atlas_size.mobile=256
+textures/shadow_atlas/size=2048
+textures/glow/upscale_mode=1
+textures/ssil/quality=2
+textures/ssao/quality=2
+textures/gi/use_half_resolution=false
+textures/positional_shadow/atlas_size.mobile=2048
+textures/positional_shadow/atlas_size=4096
+textures/positional_shadow/soft_shadow_filter_quality.mobile=0
+textures/positional_shadow/soft_shadow_filter_quality=2
+textures/directional_shadow/soft_shadow_filter_quality.mobile=0
+textures/directional_shadow/size.mobile=2048
+textures/directional_shadow/size=4096
+textures/size/viewport_height=900

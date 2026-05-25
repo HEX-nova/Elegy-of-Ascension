@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponItem" format=3 uid="uid://c2w4tguqq7ddf"]
+
+[ext_resource type="Script" uid="uid://ci10sbwi55h6d" path="res://Scripts/WeaponItem.gd" id="1_06hg4"]
+[ext_resource type="Texture2D" uid="uid://45wtbgtfump5" path="res://Sprites/Spear.png" id="1_ysm55"]
+
+[resource]
+script = ExtResource("1_06hg4")
+stat = 5
+name = "Spear"
+icon = ExtResource("1_ysm55")
+type = 3
+description = "a stick with a pointy end"
+metadata/_custom_type_script = "uid://ci10sbwi55h6d"
