@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://bk5rmhblp1d6i"]
 
-[ext_resource type="Texture2D" uid="uid://cqcjmf26vyaaw" path="res://Sprites/Model.png" id="1_w7uve"]
+[ext_resource type="Texture2D" uid="uid://cqcjmf26vyaaw" path="res://Sprites/CryoModel.png" id="1_w7uve"]
 [ext_resource type="Texture2D" uid="uid://cmwnuoosicqaq" path="res://Sprites/DendroModel.png" id="2_52jlb"]
 [ext_resource type="Texture2D" uid="uid://buhlnlwat05lo" path="res://Sprites/HydroModel.png" id="3_e4acm"]
 [ext_resource type="Texture2D" uid="uid://drr8cmir87xk" path="res://Sprites/PyroModel.png" id="4_7vl77"]

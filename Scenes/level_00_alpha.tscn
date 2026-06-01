@@ -29,10 +29,14 @@ tile_map_data = PackedByteArray("AADm/wAAAQAAAAAAAADn/wAAAQAAAAAAAADo/wAAAQAAAAA
 [node name="Danger" parent="TileMap" index="2" unique_id=1134483993]
 tile_map_data = PackedByteArray("AAAMAP//AQADAAAAAAAQAP//AQADAAAAAAAUAP//AQADAAAAAAAYAP//AQADAAAAAADV//3/AQADAAAAAADW//3/AQADAAAAAADX//3/AQADAAAAAADY//3/AQADAAAAAADZ//3/AQADAAAAAADa//3/AQADAAAAAADb//3/AQADAAAAAAA=")
 
+[node name="Parallax2D" parent="TileMap" index="5" unique_id=835401603]
+scroll_scale = Vector2(0.25, 0.25)
+repeat_size = Vector2(500, 0)
+
 [node name="World Barrier" parent="." unique_id=1619627720 instance=ExtResource("2_8urwn")]
 
 [node name="CharacterBody2D" parent="." unique_id=1420195861 instance=ExtResource("2_8puox")]
-position = Vector2(4117, -2513)
+position = Vector2(1292, -125)
 
 [node name="Item" parent="." unique_id=1010940809 instance=ExtResource("4_ywb7m")]
 position = Vector2(3704, -2445)
