@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Elegy"
-run/main_scene="uid://dfhtak7q7v308"
+run/main_scene="uid://d0r68ppqtast6"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://Sprites/icon.svg"
 
@@ -31,6 +31,8 @@ Weather="*uid://dv3n2nn6vb5nk"
 
 [display]
 
+window/size/viewport_width=1200
+window/size/viewport_height=650
 window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
 

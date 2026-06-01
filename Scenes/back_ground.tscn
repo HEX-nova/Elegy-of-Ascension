@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://4wrgj16fibr2"]
 
 [sub_resource type="Gradient" id="Gradient_trj04"]
+colors = PackedColorArray(0.73370296, 0.8678143, 1, 1, 0.99999994, 0.62714505, 0.24073556, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_trj04"]
 gradient = SubResource("Gradient_trj04")

@@ -17,6 +17,8 @@
 [ext_resource type="Resource" uid="uid://cs7i26buyu1xo" path="res://Resources/Weapons/Sword.tres" id="16_1f07g"]
 [ext_resource type="PackedScene" uid="uid://r56tuh3k478c" path="res://Scenes/environment_module.tscn" id="17_nhov5"]
 [ext_resource type="Resource" uid="uid://c2w4tguqq7ddf" path="res://Resources/Weapons/Spear.tres" id="17_ymp3k"]
+[ext_resource type="PackedScene" uid="uid://cf7gcdk5boddk" path="res://Scenes/parallex_bg_fg.tscn" id="18_nhov5"]
+[ext_resource type="Texture2D" uid="uid://dsa2hnjderf5p" path="res://Sprites/Mountain bg.png" id="19_v20tx"]
 
 [node name="Level-00-alpha" type="Node2D" unique_id=30079068]
 
@@ -29,14 +31,10 @@ tile_map_data = PackedByteArray("AADm/wAAAQAAAAAAAADn/wAAAQAAAAAAAADo/wAAAQAAAAA
 [node name="Danger" parent="TileMap" index="2" unique_id=1134483993]
 tile_map_data = PackedByteArray("AAAMAP//AQADAAAAAAAQAP//AQADAAAAAAAUAP//AQADAAAAAAAYAP//AQADAAAAAADV//3/AQADAAAAAADW//3/AQADAAAAAADX//3/AQADAAAAAADY//3/AQADAAAAAADZ//3/AQADAAAAAADa//3/AQADAAAAAADb//3/AQADAAAAAAA=")
 
-[node name="Parallax2D" parent="TileMap" index="5" unique_id=835401603]
-scroll_scale = Vector2(0.25, 0.25)
-repeat_size = Vector2(500, 0)
-
 [node name="World Barrier" parent="." unique_id=1619627720 instance=ExtResource("2_8urwn")]
 
 [node name="CharacterBody2D" parent="." unique_id=1420195861 instance=ExtResource("2_8puox")]
-position = Vector2(1292, -125)
+position = Vector2(3952, 0)
 
 [node name="Item" parent="." unique_id=1010940809 instance=ExtResource("4_ywb7m")]
 position = Vector2(3704, -2445)
@@ -153,7 +151,18 @@ visible = false
 position = Vector2(4374, -2769)
 
 [node name="BackGround" parent="." unique_id=1851807209 instance=ExtResource("15_1ss0j")]
-visible = false
+
+[node name="Parallex BG _ FG" parent="BackGround" unique_id=1387058049 instance=ExtResource("18_nhov5")]
+position = Vector2(3678, -246)
+
+[node name="Lowest" parent="BackGround/Parallex BG _ FG" index="0" unique_id=42543350]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(1200, 0)
+
+[node name="Sprite2D" parent="BackGround/Parallex BG _ FG/Lowest" index="0" unique_id=643994638]
+scale = Vector2(2.4, 1)
+texture = ExtResource("19_v20tx")
+centered = false
 
 [node name="Item22" parent="." unique_id=1779161446 instance=ExtResource("4_ywb7m")]
 position = Vector2(3668, -2442)
@@ -181,3 +190,5 @@ state = 0
 [editable path="TileMap"]
 [editable path="World Barrier"]
 [editable path="Door"]
+[editable path="BackGround"]
+[editable path="BackGround/Parallex BG _ FG"]

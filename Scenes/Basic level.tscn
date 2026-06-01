@@ -267,5 +267,3 @@ energy = 0.7
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.6392157)
 shadow_filter = 1
-
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=835401603]

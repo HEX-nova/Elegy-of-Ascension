@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cf7gcdk5boddk"]
+
+[node name="Parallex BG _ FG" type="Node2D" unique_id=1387058049]
+
+[node name="Lowest" type="Parallax2D" parent="." unique_id=42543350]
+z_index = -10
+
+[node name="Sprite2D" type="Sprite2D" parent="Lowest" unique_id=643994638]
+z_index = -10
+
+[node name="Lower" type="Parallax2D" parent="." unique_id=1499630]
+z_index = -5
+
+[node name="Sprite2D" type="Sprite2D" parent="Lower" unique_id=1220928752]
+z_index = -5
+
+[node name="Low" type="Parallax2D" parent="." unique_id=1596740451]
+z_index = -3
+
+[node name="Sprite2D" type="Sprite2D" parent="Low" unique_id=320135655]
+z_index = -3
+
+[node name="High" type="Parallax2D" parent="." unique_id=1090346062]
+z_index = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="High" unique_id=2074723283]
+z_index = 3
+
+[node name="Higher" type="Parallax2D" parent="." unique_id=2106772528]
+z_index = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Higher" unique_id=986450015]
+z_index = 5
+
+[node name="Highest" type="Parallax2D" parent="." unique_id=947491858]
+z_index = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Highest" unique_id=784007673]
+z_index = 10
