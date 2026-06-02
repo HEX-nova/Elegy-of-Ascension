@@ -17,5 +17,9 @@ export_credentials.cfg
 data_*/
 mono_crash.*.json
 
+<<<<<<< Updated upstream
 #Android build ignores
+=======
+# Android build ignores
+>>>>>>> Stashed changes
 android/
