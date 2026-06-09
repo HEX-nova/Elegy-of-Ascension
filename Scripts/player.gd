@@ -297,7 +297,12 @@ func fire_projectile():
 
 func _handle_sprite_switching():
 	var target_name = str(StatsComponent.element_type)
-	if animated_sprite.name != target_name:
+	if stats.current_health <= 0 :
+		animated_sprite.visible = false
+		animated_sprite = find_child("Death")
+		animated_sprite.visible = true
+		animated_sprite.play(str(stats.element_type))
+	elif animated_sprite.name != target_name:
 		var new_sprite = find_child(target_name, false, false)
 		if new_sprite:
 			animated_sprite.visible = false
@@ -307,7 +312,7 @@ func _handle_sprite_switching():
 				animated_sprite.animation_finished.connect(_on_animation_finished)
 
 func play_damaged_effect():
-	velocity.y = -250 
+	velocity.y = -350 
 	var tween = create_tween()
 	for i in 4:
 		tween.tween_property(animated_sprite, "modulate", Color(1, 0, 0, 0.5), 0.1)

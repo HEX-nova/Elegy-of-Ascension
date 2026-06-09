@@ -1,7 +1,7 @@
 extends Node
 
 # One source of truth
-enum State {CLEAR, STORMY, MISTY, CLEARCUT, STORMYCUT, MISTYCUT}
+enum State {CLEAR, STORMY, MISTY, CLEARCUT, STORMYCUT, MISTYCUT, DEATH}
 var current_state = State.CLEAR
 
 # Shared settings
@@ -19,11 +19,15 @@ func set_weather(new_state: int):
 	var world_tint: Color = Color(1, 1, 1) # Default: No tint
 
 	match current_state:
+		State.DEATH:
+			sky_color_bottom = Color.GRAY
+			sky_color_top = Color.LIGHT_GRAY
+			world_tint = Color(1.0, 0.35, 0.35, 0.9)
 		State.CLEAR:
 			cloud_speed_mult = 1.0
 			cloud_density_mult = 3.0
-			sky_color_top = Color("199affff")
-			sky_color_bottom = Color("43b2b2ff")
+			sky_color_top = Color("79bcffff")
+			sky_color_bottom = Color("55cdcdff")
 			sun_energy = 1.0
 			world_tint = Color(0.972, 0.972, 0.972, 0.686)
 		State.STORMY:
@@ -31,9 +35,9 @@ func set_weather(new_state: int):
 			cloud_density_mult = 0.1
 			sky_color_top = Color("222222")
 			sky_color_bottom = Color("777777")
-			sun_energy = 0.3
+			sun_energy = 0.1
 			world_tint = Color(0.588, 0.588, 0.71, 0.859) # Slight dark blue/grey tint
-		State.MISTY:
+		State.MISTYCUT:
 			cloud_speed_mult = 0.5
 			cloud_density_mult = 2.0
 			sky_color_top = Color("a4adb1ff")
@@ -52,13 +56,13 @@ func set_weather(new_state: int):
 			cloud_density_mult = 0.1
 			sky_color_top = Color("222222")
 			sky_color_bottom = Color("777777")
-			sun_energy = 0.4
+			sun_energy = 0
 			world_tint = Color(0.7, 0.7, 0.8) # Slight dark blue/grey tint
-		State.MISTYCUT:
+		State.MISTY:
 			cloud_speed_mult = 0.3
 			cloud_density_mult = 2.0
 			sky_color_top = Color("384f4fff")
-			sky_color_bottom = Color("414041ff")
+			sky_color_bottom = Color("5d5b5dff")
 			sun_energy = 0.3
 			world_tint = Color(0.404, 0.404, 0.482, 0.247) # The foggy tint
 

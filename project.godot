@@ -38,6 +38,7 @@ window/vsync/vsync_mode=0
 
 [editor]
 
+movie_writer/disable_vsync=true
 version_control/plugin_name="Godot Git Plugin (4.1+)"
 version_control/autoload_on_startup=true
 
@@ -149,6 +150,8 @@ Inventory={
 textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/directional_shadow/size=2048
 lights_and_shadows/directional_shadow/size.mobile=256

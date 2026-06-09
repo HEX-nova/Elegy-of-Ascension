@@ -106,7 +106,7 @@ func take_damage(incoming_atk: float, attacker_element: int):
 func start_invulnerability():
 	can_take_damage = false
 	# Flash the sprite or wait 1 second
-	await get_tree().create_timer(1.0).timeout 
+	await get_tree().create_timer(1.5).timeout 
 	can_take_damage = true
 
 func level_up():
@@ -120,7 +120,10 @@ func level_up():
 func die():
 	# 1. Reset health immediately so we don't "die" twice in one frame
 	current_health = max_health
-	
+	Engine.time_scale = 0.2
+	Weather.set_weather(Weather.State.DEATH)
+	await get_tree().create_timer(0.75).timeout
+	Engine.time_scale = 1.0
 	# 2. Find the player root safely
 	var player_node = null
 	
@@ -141,7 +144,6 @@ func die():
 				# Reset physics so you don't keep sliding after respawn
 				if "velocity" in player_node:
 					player_node.set_deferred("velocity", Vector2.ZERO)
-				print("RESPAWN: Player moved to SpawnPoint.")
 			else:
 				# If no spawnpoint, just reload
 				get_tree().call_deferred("reload_current_scene")
@@ -163,12 +165,13 @@ func cycle_element():
 		print("Tun synced with : ", element_name)
 
 func take_fixed_damage(amount):
-	current_health -= amount
-	var target_node = get_tree().get_first_node_in_group("Player")
-	var pos = target_node.global_position + Vector2(0, -20)
-	DamageNumberDisplay.display_number(str(-1 * round(amount)), pos, Color.WHITE)
-	target_node.play_damaged_effect()
-	start_invulnerability()
-	if current_health <= 0:
-		die()
-	stats_changed.emit()
+	if can_take_damage:
+		current_health -= amount
+		var target_node = get_tree().get_first_node_in_group("Player")
+		var pos = target_node.global_position + Vector2(0, -20)
+		DamageNumberDisplay.display_number(str(-1 * round(amount)), pos, Color.WHITE)
+		target_node.play_damaged_effect()
+		start_invulnerability()
+		if current_health <= 0:
+			die()
+		stats_changed.emit()

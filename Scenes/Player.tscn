@@ -10,10 +10,110 @@
 [ext_resource type="SpriteFrames" uid="uid://dbmq3fs5val07" path="res://Animation Modules/Anemo Animations.tres" id="6_megsn"]
 [ext_resource type="SpriteFrames" uid="uid://c0gq65epfn5d8" path="res://Animation Modules/Nhlm Animations.tres" id="7_yoq75"]
 [ext_resource type="SpriteFrames" uid="uid://gbulv67m0dgj" path="res://Animation Modules/Electro Animations.tres" id="8_yoq75"]
+[ext_resource type="Texture2D" uid="uid://d0s2klctucutt" path="res://Sprites/Death.png" id="10_1e7my"]
 [ext_resource type="Texture2D" uid="uid://bhwf4a1ekxajr" path="res://Sprites/Player laser muzzle.png" id="11_glx4g"]
 [ext_resource type="Texture2D" uid="uid://t4u26xd4f148" path="res://Sprites/Player laser strip.png" id="12_miouo"]
 [ext_resource type="PackedScene" uid="uid://chmj2ocvt3cr6" path="res://Scenes/weapon.tscn" id="13_miouo"]
 [ext_resource type="Script" uid="uid://ds4jx3kj6qrn7" path="res://Scripts/inventory.gd" id="14_o3h8g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arntx"]
+atlas = ExtResource("10_1e7my")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e7my"]
+atlas = ExtResource("10_1e7my")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lslt6"]
+atlas = ExtResource("10_1e7my")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulo2v"]
+atlas = ExtResource("10_1e7my")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iu4k"]
+atlas = ExtResource("10_1e7my")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0x7a"]
+atlas = ExtResource("10_1e7my")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v66d"]
+atlas = ExtResource("10_1e7my")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x63xi"]
+atlas = ExtResource("10_1e7my")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lslt6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arntx")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e7my")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lslt6")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulo2v")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iu4k")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0x7a")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v66d")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x63xi")
+}],
+"loop": true,
+"name": &"7",
+"speed": 5.0
+}]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o3h8g"]
 polygon = PackedVector2Array(7, 15, 7, 16, -7, 16, -7, 15, -8, 15, -8, 14, -9, 14, -9, 7, -8, 7, -8, 4, -7, 4, -4, 2, 0, 2, 4, 4, 6, 7, 7, 13)
@@ -69,6 +169,11 @@ visible = false
 texture_filter = 1
 sprite_frames = ExtResource("7_yoq75")
 animation = &"LevelUp"
+
+[node name="Death" type="AnimatedSprite2D" parent="." unique_id=760507479]
+visible = false
+sprite_frames = SubResource("SpriteFrames_lslt6")
+animation = &"7"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2143361698]
 visible = false
