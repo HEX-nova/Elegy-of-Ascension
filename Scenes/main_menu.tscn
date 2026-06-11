@@ -110,7 +110,7 @@ volume_db = -21.392
 autoplay = true
 
 [node name="EnvironmentModule" parent="." unique_id=2008732781 instance=ExtResource("4_ce3w2")]
-state = 3
+state = 0
 
 [editable path="TileMap"]
 [editable path="Shrine"]
