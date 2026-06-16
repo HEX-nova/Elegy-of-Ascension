@@ -29,7 +29,7 @@ func set_weather(new_state: int):
 			sky_color_top = Color("79bcffff")
 			sky_color_bottom = Color("55cdcdff")
 			sun_energy = 1.0
-			world_tint = Color(0.972, 0.972, 0.972, 0.686)
+			world_tint = Color(0.972, 0.972, 0.972, 1)
 		State.STORMY:
 			cloud_speed_mult = 3.0
 			cloud_density_mult = 0.1

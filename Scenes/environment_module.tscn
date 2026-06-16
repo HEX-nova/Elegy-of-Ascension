@@ -3,8 +3,16 @@
 [ext_resource type="Environment" uid="uid://bb3ebmy2qy5r8" path="res://Effects/new_environment.tres" id="1_7q4ua"]
 [ext_resource type="Script" uid="uid://b3h5fmbffkncg" path="res://Scripts/environment_module.gd" id="2_tma06"]
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_tma06"]
+auto_exposure_enabled = true
+dof_blur_far_enabled = true
+dof_blur_far_distance = 0.02
+dof_blur_far_transition = 315.54
+dof_blur_near_enabled = true
+
 [node name="EnvironmentModule" type="WorldEnvironment" unique_id=2008732781]
 environment = ExtResource("1_7q4ua")
+camera_attributes = SubResource("CameraAttributesPractical_tma06")
 script = ExtResource("2_tma06")
 state = 2
 

@@ -33,6 +33,9 @@ Weather="*uid://dv3n2nn6vb5nk"
 
 window/size/viewport_width=1200
 window/size/viewport_height=650
+window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
 
@@ -150,8 +153,6 @@ Inventory={
 textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/directional_shadow/size=2048
 lights_and_shadows/directional_shadow/size.mobile=256
@@ -163,6 +164,7 @@ environment/ssao/quality=1
 environment/ssil/quality=1
 occlusion_culling/occlusion_rays_per_thread=64
 environment/glow/upscale_mode=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 lights_and_shadows/positional_shadow/atlas_size=2048
 lights_and_shadows/positional_shadow/atlas_size.mobile=256
 textures/shadow_atlas/size=2048
