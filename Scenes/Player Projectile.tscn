@@ -107,7 +107,7 @@ animations = [{
 
 [node name="Area2D" type="Area2D" unique_id=2058519864]
 collision_layer = 16
-collision_mask = 170
+collision_mask = 174
 script = ExtResource("1_7pst0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=521560776]

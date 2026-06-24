@@ -39,5 +39,5 @@ func _on_body_entered(body):
 		# We use the projectile's stored element and the damage it was given
 		enemy_stats.take_damage(damage_amount, element_type)
 		queue_free() # Destroy on hit
-	elif body is TileMap: # Optional: destroy if hits a wall
+	elif body is TileMap or body is TileMapLayer: # Optional: destroy if hits a wall
 		queue_free()
