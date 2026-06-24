@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Elegy"
 run/main_scene="uid://d0r68ppqtast6"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://Sprites/icon.svg"
 
 [audio]
