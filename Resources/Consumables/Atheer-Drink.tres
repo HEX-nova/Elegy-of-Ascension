@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ConsumableItem" format=3 uid="uid://b1kpeod5unlvv"]
+
+[ext_resource type="Texture2D" uid="uid://b4yxcie01xx1q" path="res://Sprites/Atheer-Drink.png" id="1_7hb5m"]
+[ext_resource type="Script" uid="uid://vumep2cojxja" path="res://Scripts/ConsumableItem.gd" id="1_c1lym"]
+
+[resource]
+script = ExtResource("1_c1lym")
+affected_stat = 3
+name = "Atheer-Drink"
+weight = 0.1
+value = 25
+icon = ExtResource("1_7hb5m")
+description = "Atheer in a bottle, it is said that once drunk, even the lowest of life can use an affinity."
+metadata/_custom_type_script = "uid://vumep2cojxja"

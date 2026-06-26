@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ConsumableItem" format=3 uid="uid://3x2ymkjch61k"]
+
+[ext_resource type="Texture2D" uid="uid://0f1wgvrwhd4l" path="res://Sprites/potion2.png" id="1_aq0c4"]
+[ext_resource type="Script" uid="uid://vumep2cojxja" path="res://Scripts/ConsumableItem.gd" id="1_t52p1"]
+
+[resource]
+script = ExtResource("1_t52p1")
+boost_value = 50
+name = "Average health potion"
+weight = 0.5
+value = 25
+icon = ExtResource("1_aq0c4")
+description = "A rare, more potent potion, can restore a relatively large amount of health, also spammable if you have enough."
+metadata/_custom_type_script = "uid://vumep2cojxja"

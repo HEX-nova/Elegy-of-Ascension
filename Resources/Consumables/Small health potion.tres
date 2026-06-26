@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ConsumableItem" format=3 uid="uid://llknxhxacexd"]
+
+[ext_resource type="Script" uid="uid://vumep2cojxja" path="res://Scripts/ConsumableItem.gd" id="1_g470r"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g470r"]
+load_path = "res://.godot/imported/potion1.png-f55b4dd72b7238f115d92a3fc129d25c.ctex"
+
+[resource]
+script = ExtResource("1_g470r")
+name = "Small health potion"
+weight = 0.1
+value = 5
+icon = SubResource("CompressedTexture2D_g470r")
+description = "Recovers a small amount of health, easy to use and very spammable."
+metadata/_custom_type_script = "uid://vumep2cojxja"
