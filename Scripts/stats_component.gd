@@ -11,7 +11,7 @@ class_name Stats
 @onready var current_atheer: float = max_atheer
 
 # --- THE FIX: The Setter ---
-# Whenever you change this in the Inspector, sync_with_matrix() fires automatically!
+@onready var element_roster = [0]
 @export var element_type: Elements.Type = Elements.Type.GLACIA:
 	set(value):
 		element_type = value
@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 	if current_exp >= max_exp:
 		level_up()
 	_handle_regeneration(delta)
-	if Input.is_action_just_released("ui_x_key"):
+	if Input.is_action_just_released("SwitchElement"):
 		cycle_element()
 
 func _handle_regeneration(delta):
@@ -154,7 +154,7 @@ func die():
 	stats_changed.emit()
 
 func cycle_element():
-	var element_count = Elements.Type.size() 
+	var element_count = element_roster.size() 
 	var current = element_type 
 	var next = (current + 1) % element_count
 	element_type = next
@@ -162,7 +162,6 @@ func cycle_element():
 	var player = get_tree().get_first_node_in_group("Player")
 	if player:
 		DamageNumberDisplay.display_number(element_name, player.global_position, Color.WHITE)
-		print("Tun synced with : ", element_name)
 
 func take_fixed_damage(amount):
 	if can_take_damage:
@@ -175,3 +174,14 @@ func take_fixed_damage(amount):
 		if current_health <= 0:
 			die()
 		stats_changed.emit()
+
+func add_to_roster(element_index: int) -> void:
+	if element_index < 0 or element_index > 7:
+		push_error("Invalid element index. Must be between 0 and 7.")
+		return
+	if element_roster.has(element_index):
+		element_roster.erase(element_index)
+	element_roster.append(element_index)
+	if element_roster.size() > 4:
+		element_roster.pop_front()
+	print("Rooster updated: ", element_roster)

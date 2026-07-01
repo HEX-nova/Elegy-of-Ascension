@@ -14,6 +14,7 @@ func _ready():
 func Interact():
 	# The player "tunes" to the shrine's fixed element
 	var current_player_element = StatsComponent.element_type
+	StatsComponent.add_to_roster(shrine_element)
 	
 	if current_player_element != shrine_element:
 		StatsComponent.element_type = shrine_element

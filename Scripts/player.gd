@@ -189,6 +189,9 @@ func _physics_process(delta: float) -> void:
 	var h_dir = Input.get_axis("ui_left", "ui_right")
 	var v_dir = Input.get_axis("ui_up", "ui_down")
 	_update_animations(h_dir, v_dir)
+	
+	
+	
 	move_and_slide()
 
 # --- SYSTEM JUMP OVERRIDES ---
