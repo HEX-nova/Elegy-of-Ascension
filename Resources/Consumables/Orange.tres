@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ConsumableItem" format=3 uid="uid://ddxemqhv7ex8c"]
+
+[ext_resource type="Texture2D" uid="uid://wadwa1p03iek" path="res://Sprites/test orb.png" id="1_i45w3"]
+[ext_resource type="Script" uid="uid://vumep2cojxja" path="res://Scripts/ConsumableItem.gd" id="1_xkqap"]
+
+[resource]
+script = ExtResource("1_xkqap")
+affected_stat = 4
+boost_value = 40
+name = "Orange"
+weight = 1.5
+value = 2
+icon = ExtResource("1_i45w3")
+description = "A delicious citric fruit, very good for user's health, restores 40 stamina upon consumption."
+metadata/_custom_type_script = "uid://vumep2cojxja"

@@ -8,5 +8,5 @@ script = ExtResource("2_xnivm")
 name = "Apple"
 value = 1
 icon = ExtResource("1_xnivm")
-description = "A very delicious fruit, sometimes it changes colors depending on the sweetness. heals the user for 25 upon consumption."
+description = "A very delicious fruit, sometimes it changes colors depending on the sweetness. heals the user for 20 upon consumption."
 metadata/_custom_type_script = "uid://baxi8pgf5cqgi"
