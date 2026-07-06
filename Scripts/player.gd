@@ -366,7 +366,7 @@ func _update_animations(direction: float, v_dir: float):
 				else:
 					animated_sprite.play("Fall") # Rapid super fall after peak passes
 			else:
-				if velocity.y > 450.0:
+				if velocity.y > 500.0:
 					animated_sprite.play("Fall")
 				else:
 					animated_sprite.play("Idle" + anim_suffix) # Small fall is idle

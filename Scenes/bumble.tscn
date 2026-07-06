@@ -49,7 +49,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fhp1j")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 45.0
 }]
@@ -58,6 +58,7 @@ animations = [{
 radius = 156.95222
 
 [node name="Bumble" type="StaticBody2D" unique_id=1976387197 groups=["Enemy"]]
+scale = Vector2(2, 2)
 collision_layer = 8
 collision_mask = 127
 script = ExtResource("1_brush")
