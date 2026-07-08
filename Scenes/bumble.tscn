@@ -1,39 +1,48 @@
 [gd_scene format=3 uid="uid://6g25ut6a8m81"]
 
-[ext_resource type="Texture2D" uid="uid://xb0uobxbopn8" path="res://Sprites/Bumble.png" id="1_4ediy"]
 [ext_resource type="Script" uid="uid://2c66telh4y4e" path="res://Scripts/bumble.gd" id="1_brush"]
 [ext_resource type="PackedScene" uid="uid://4o6ka6gb6nch" path="res://Scenes/EnemyStatsComponent.tscn" id="2_brush"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p7pus"]
-atlas = ExtResource("1_4ediy")
-region = Rect2(0, 0, 32, 32)
+[ext_resource type="Texture2D" uid="uid://cgrjrg08s43vs" path="res://Sprites/Bumble_revision.png" id="2_p7pus"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fy1v"]
-atlas = ExtResource("1_4ediy")
-region = Rect2(0, 32, 32, 32)
+atlas = ExtResource("2_p7pus")
+region = Rect2(0, 0, 34, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_th35h"]
-atlas = ExtResource("1_4ediy")
-region = Rect2(32, 0, 32, 32)
+atlas = ExtResource("2_p7pus")
+region = Rect2(34, 0, 34, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_exmxc"]
-atlas = ExtResource("1_4ediy")
-region = Rect2(32, 32, 32, 32)
+atlas = ExtResource("2_p7pus")
+region = Rect2(68, 0, 34, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5lrbg"]
-atlas = ExtResource("1_4ediy")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("2_p7pus")
+region = Rect2(0, 34, 34, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhp1j"]
-atlas = ExtResource("1_4ediy")
-region = Rect2(64, 32, 32, 32)
+atlas = ExtResource("2_p7pus")
+region = Rect2(34, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0061"]
+atlas = ExtResource("2_p7pus")
+region = Rect2(68, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsy33"]
+atlas = ExtResource("2_p7pus")
+region = Rect2(0, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0glxh"]
+atlas = ExtResource("2_p7pus")
+region = Rect2(34, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5g8s"]
+atlas = ExtResource("2_p7pus")
+region = Rect2(68, 68, 34, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f0061"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p7pus")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4fy1v")
 }, {
@@ -48,10 +57,22 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fhp1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0061")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsy33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0glxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5g8s")
 }],
 "loop": 1,
 "name": &"Idle",
-"speed": 45.0
+"speed": 50.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ediy"]
@@ -67,7 +88,7 @@ script = ExtResource("1_brush")
 sprite_frames = SubResource("SpriteFrames_f0061")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.3609001
+frame_progress = 0.61334574
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=657875918]
 polygon = PackedVector2Array(-4, -4, -5, -4, -5, -2, -6, -2, -6, 2, -5, 2, -5, 4, -4, 4, -4, 5, -2, 5, -2, 6, 2, 6, 2, 5, 4, 5, 4, 4, 5, 4, 5, 2, 6, 2, 6, -2, 5, -2, 5, -4, 4, -4, 4, -5, 2, -5, 2, -6, -2, -6, -2, -5, -4, -5)
