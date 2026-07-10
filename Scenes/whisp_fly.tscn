@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://btxmt8tafidaw"]
+
+[ext_resource type="Texture2D" uid="uid://bm1ss3s5vsbf0" path="res://Sprites/whisp_fly_idle.png" id="1_en5wt"]
+[ext_resource type="PackedScene" uid="uid://4o6ka6gb6nch" path="res://Scenes/EnemyStatsComponent.tscn" id="2_bkcge"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvc2k"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiq5e"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpuch"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffnu1"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(102, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbgro"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(0, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of4tc"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(34, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ujqm"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(68, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eql6f"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(102, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifgrq"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(0, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x3ms"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(34, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78c6q"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(68, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysya4"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(102, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugvca"]
+atlas = ExtResource("1_en5wt")
+region = Rect2(0, 102, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htemk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvc2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiq5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpuch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffnu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbgro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of4tc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ujqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eql6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifgrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x3ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78c6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysya4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugvca")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_htemk"]
+radius = 7.0
+
+[node name="Whisp Fly" type="Node2D" unique_id=1675245696 groups=["Enemy"]]
+scale = Vector2(1.58, 1.58)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=753302963]
+sprite_frames = SubResource("SpriteFrames_htemk")
+autoplay = "default"
+frame_progress = 0.9161659
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2060838123]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2071320632]
+shape = SubResource("CircleShape2D_htemk")
+
+[node name="EnemyStatsComponent" parent="." unique_id=1023043979 instance=ExtResource("2_bkcge")]
+element_type = 1
+enemy_name = "Whisp Fly"
+base_hp = 350.0
+base_atk = 10.0

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c44hq7kdfjg45"]
+
+[ext_resource type="PackedScene" uid="uid://brur3q35btdpk" path="res://Levels/Flora/Flora.ldtk" id="1_s4rdc"]
+
+[node name="Flora" unique_id=1440493989 instance=ExtResource("1_s4rdc")]

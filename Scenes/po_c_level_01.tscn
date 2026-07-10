@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://bfv4b3y3cjg1h" path="res://Resources/Consumables/Apple.tres" id="10_10s00"]
 [ext_resource type="Resource" uid="uid://llknxhxacexd" path="res://Resources/Consumables/Small health potion.tres" id="12_7qyjx"]
 [ext_resource type="Texture2D" uid="uid://mnt2pwp45s6q" path="res://Sprites/Wood door.png" id="13_onw8j"]
+[ext_resource type="PackedScene" uid="uid://btxmt8tafidaw" path="res://Scenes/whisp_fly.tscn" id="15_qmbqc"]
 [ext_resource type="Resource" uid="uid://ddxemqhv7ex8c" path="res://Resources/Consumables/Orange.tres" id="17_gxhbh"]
 [ext_resource type="PackedScene" uid="uid://shlyiefhal5i" path="res://Scenes/thornspitter.tscn" id="18_c0r3s"]
 [ext_resource type="PackedScene" uid="uid://6g25ut6a8m81" path="res://Scenes/bumble.tscn" id="19_qmbqc"]
@@ -71,6 +72,9 @@ position = Vector2(1648, -64)
 
 [node name="EnemyStatsComponent" parent="Cinderbug" index="2" unique_id=1023043979]
 xp_reward = 100.0
+
+[node name="Whisp Fly" parent="Cinderbug" unique_id=1675245696 instance=ExtResource("15_qmbqc")]
+position = Vector2(-1392, 31)
 
 [node name="Item" parent="." unique_id=1010940809 instance=ExtResource("8_m0jb4")]
 position = Vector2(1840, -40)

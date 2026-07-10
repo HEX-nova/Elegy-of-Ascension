@@ -1,0 +1,39 @@
+[remap]
+
+importer="ldtk.import"
+type="PackedScene"
+uid="uid://cq3kw8nfcoq3t"
+path="res://.godot/imported/Flora.ldtk-6bfbee887f4b93202bfa2e5be12493c8.scn"
+
+[deps]
+
+files=["res://Resources/levels/Level_0.scn", "res://.godot/imported/Flora.ldtk-6bfbee887f4b93202bfa2e5be12493c8.scn"]
+
+source_file="res://Resources/Flora.ldtk"
+dest_files=["res://.godot/imported/Flora.ldtk-6bfbee887f4b93202bfa2e5be12493c8.scn", "res://Resources/levels/Level_0.scn", "res://.godot/imported/Flora.ldtk-6bfbee887f4b93202bfa2e5be12493c8.scn"]
+
+[params]
+
+World=""
+group_world_layers=false
+Level=""
+pack_levels=true
+level_save_extension=0
+Layer=""
+layers_always_visible=false
+Tileset=""
+tileset_custom_data=false
+integer_grid_tilesets=false
+atlas_texture_type=0
+tileset_save_extension=0
+Entity=""
+resolve_entityrefs=true
+use_entity_placeholders=false
+Post Import=""
+tileset_post_import=""
+entities_post_import=""
+level_post_import=""
+world_post_import=""
+Debug=""
+force_tileset_reimport=false
+verbose_output=false
