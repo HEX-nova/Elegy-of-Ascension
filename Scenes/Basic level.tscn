@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b8xtqrh37kt3u" path="res://Sprites/Bush.png" id="3_addtv"]
 [ext_resource type="Texture2D" uid="uid://dfa17deituup4" path="res://Sprites/Cloud.png" id="4_61w35"]
 [ext_resource type="Script" uid="uid://fcxgs17e2eh7" path="res://Scenes/Light.gd" id="5_1m4dd"]
+[ext_resource type="Texture2D" uid="uid://m1rl2mhknmx7" path="res://Sprites/Water-fall sheet.png" id="5_kjfah"]
+[ext_resource type="Texture2D" uid="uid://ds7d6td0l6opi" path="res://Sprites/Water-surface sheet.png" id="6_6x1if"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a5lhj"]
 polygon = PackedVector2Array(-16, -4, -15, -4, -15, -5, -14, -5, -14, -6, -13, -6, -13, -7, -12, -7, -12, -8, -11, -8, -11, -9, -9, -9, -9, -10, -7, -10, -7, -11, -6, -11, -6, -12, -3, -12, -3, -13, 2.5, -13, 3, -13, 3, -12, 6, -12, 6, -11, 7, -11, 7, -10, 9, -10, 9, -9, 10, -9, 10, -7, 11, -7, 11, -5, 12, -5, 12, -2, 13, -2, 13, 14, 14, 14, 14, 16, -16, 16)
@@ -228,6 +230,33 @@ texture_region_size = Vector2i(32, 32)
 4:0/0 = 0
 4:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_lpjyh")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6x1if"]
+texture = ExtResource("5_kjfah")
+texture_region_size = Vector2i(32, 32)
+use_texture_padding = false
+0:0/animation_columns = 8
+0:0/animation_speed = 25.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aiyo"]
+texture = ExtResource("6_6x1if")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 4
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_fr6qw"]
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 2
@@ -240,6 +269,8 @@ sources/1 = SubResource("TileSetAtlasSource_5s8la")
 sources/0 = SubResource("TileSetAtlasSource_pldkj")
 sources/2 = SubResource("TileSetAtlasSource_61w35")
 sources/3 = SubResource("TileSetAtlasSource_vcuob")
+sources/5 = SubResource("TileSetAtlasSource_6x1if")
+sources/6 = SubResource("TileSetAtlasSource_2aiyo")
 
 [node name="TileMap" type="TileMap" unique_id=1962942697]
 tile_set = SubResource("TileSet_fr6qw")

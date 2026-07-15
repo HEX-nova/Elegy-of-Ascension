@@ -26,8 +26,7 @@ func update_weapon_visuals():
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
 		var stats = body.find_child("EnemyStatsComponent")
-		# Pro-tip: Make sure StatsComponent is accessible here. 
-		# If StatsComponent is a child node of the player, use get_parent().StatsComponent.attack
+		# If StatsComponent is a child node of the enemy, use get_parent().StatsComponent.attack
 		stats.take_damage(StatsComponent.attack, StatsComponent.element_type)
 	
 	if body.collision_layer & 128:

@@ -76,5 +76,5 @@ func _on_death():
 	# NEW: Tell the parent to play its death animation before we delete it
 	on_death_started.emit()
 	# Give it a tiny bit of time for the animation before queue_free
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.5).timeout
 	get_parent().queue_free()
